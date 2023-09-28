@@ -1,0 +1,202 @@
+{
+    "code": "200",
+    "message": "OK",
+    "data": {
+        "content": [
+            {
+                "courseId": 31,
+                "memberId": 19,
+                "courseName": "건대맛집투어코스",
+                "courseDescription": "건대 찐 맛집들만 탐방하고 싶을때",
+                "nickname": "wonseok",
+                "memberProfileImage": {
+                    "id": 7,
+                    "imgUrl": "https://eodikase-dev-bucket.s3.ap-northeast-2.amazonaws.com/static/e309603a-0457-49ee-839c-8712ab1936b3.cat2.jpeg",
+                    "isUsed": true
+                },
+                "bookmarkCount": 0,
+                "likeCount": 0,
+                "createdDate": "2023-09-27T22:57:58.000+00:00",
+                "courseScore": 0.0,
+                "courseDataList": [
+                    {
+                        "courseDataId": 1,
+                        "name": "공간 와디즈",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230104_155%2F167281593279885YIn_JPEG%2F0.jpg",
+                        "category": "복합문화공간",
+                        "location": "서울 성동구 연무장1길 7-1",
+                        "scoreByNaver": 4.66,
+                        "lat": 37.5449383,
+                        "lng": 127.0505364
+                    },
+                    {
+                        "courseDataId": 2,
+                        "name": "드림이스케이프",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230203_15%2F1675410013371JA01V_JPEG%2F%25B7%25CE%25B0%25ED6.jpg",
+                        "category": "방탈출카페",
+                        "location": "서울 광진구 아차산로 238 . 지1층",
+                        "scoreByNaver": 0.0,
+                        "lat": 37.5399877,
+                        "lng": 127.0695901
+                    },
+                    {
+                        "courseDataId": 3,
+                        "name": "마스터키 건대로데오점",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200909_285%2F1599619237713AYkSJ_PNG%2FYuS53j1xHJaO-3YeTrSVV0tz.png",
+                        "category": "방탈출카페",
+                        "location": "서울 광진구 동일로20길 98 지하 마스터키 건대로데오점",
+                        "scoreByNaver": 4.88,
+                        "lat": 37.5398094,
+                        "lng": 127.0687737
+                    }
+                ],
+                "hashtagList": [
+                    {
+                        "hashtagCode": "CP",
+                        "hashtagName": "회식할때 "
+                    },
+                    {
+                        "hashtagCode": "DATE",
+                        "hashtagName": "데이트할 떄"
+                    },
+                    {
+                        "hashtagCode": "FLEX",
+                        "hashtagName": "플렉스하고싶을 때"
+                    }
+                ]
+            },
+            {
+                "courseId": 28,
+                "memberId": 19,
+                "courseName": "건대맛집투어코스",
+                "courseDescription": "건대 찐 맛집들만 탐방하고 싶을때",
+                "nickname": "wonseok",
+                "memberProfileImage": {
+                    "id": 7,
+                    "imgUrl": "https://eodikase-dev-bucket.s3.ap-northeast-2.amazonaws.com/static/e309603a-0457-49ee-839c-8712ab1936b3.cat2.jpeg",
+                    "isUsed": true
+                },
+                "bookmarkCount": 0,
+                "likeCount": 0,
+                "createdDate": "2023-09-27T04:28:15.000+00:00",
+                "courseScore": 0.0,
+                "courseDataList": [
+                    {
+                        "courseDataId": 1,
+                        "name": "공간 와디즈",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230104_155%2F167281593279885YIn_JPEG%2F0.jpg",
+                        "category": "복합문화공간",
+                        "location": "서울 성동구 연무장1길 7-1",
+                        "scoreByNaver": 4.66,
+                        "lat": 37.5449383,
+                        "lng": 127.0505364
+                    },
+                    {
+                        "courseDataId": 2,
+                        "name": "드림이스케이프",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20230203_15%2F1675410013371JA01V_JPEG%2F%25B7%25CE%25B0%25ED6.jpg",
+                        "category": "방탈출카페",
+                        "location": "서울 광진구 아차산로 238 . 지1층",
+                        "scoreByNaver": 0.0,
+                        "lat": 37.5399877,
+                        "lng": 127.0695901
+                    },
+                    {
+                        "courseDataId": 3,
+                        "name": "마스터키 건대로데오점",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200909_285%2F1599619237713AYkSJ_PNG%2FYuS53j1xHJaO-3YeTrSVV0tz.png",
+                        "category": "방탈출카페",
+                        "location": "서울 광진구 동일로20길 98 지하 마스터키 건대로데오점",
+                        "scoreByNaver": 4.88,
+                        "lat": 37.5398094,
+                        "lng": 127.0687737
+                    }
+                ],
+                "hashtagList": [
+                    {
+                        "hashtagCode": "CP",
+                        "hashtagName": "회식할때 "
+                    },
+                    {
+                        "hashtagCode": "DATE",
+                        "hashtagName": "데이트할 떄"
+                    },
+                    {
+                        "hashtagCode": "FLEX",
+                        "hashtagName": "플렉스하고싶을 때"
+                    }
+                ]
+            },
+            {
+                "courseId": 1,
+                "memberId": 12,
+                "courseName": "테스트코스",
+                "courseDescription": "테스트 코스입니다.",
+                "nickname": "이름이름",
+                "memberProfileImage": null,
+                "bookmarkCount": 0,
+                "likeCount": 0,
+                "createdDate": "2023-09-23T09:26:35.000+00:00",
+                "courseScore": 0.0,
+                "courseDataList": [
+                    {
+                        "courseDataId": 1246,
+                        "name": "술래감자탕&순대국",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20180703_132%2F1530580772229VIp1R_JPEG%2FWOutCVyY6KjNr8LCnuMQbvyB.jpg",
+                        "category": "감자탕",
+                        "location": "서울 성동구 왕십리로4길 13",
+                        "scoreByNaver": 4.15,
+                        "lat": 37.5459844,
+                        "lng": 127.045848
+                    },
+                    {
+                        "courseDataId": 561,
+                        "name": "소문난성수감자탕",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20191020_166%2F15715629787278M1Hw_JPEG%2FE69ekAleEjpoSsUzvkV3ROyG.jpg",
+                        "category": "감자탕",
+                        "location": "서울 성동구 연무장길 45",
+                        "scoreByNaver": 4.4,
+                        "lat": 37.5428792,
+                        "lng": 127.0544255
+                    },
+                    {
+                        "courseDataId": 32,
+                        "name": "아뜰리에 아키",
+                        "imageUrl": "https://search.pstatic.net/common/?autoRotate=true&type=w560_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200617_2%2F1592389539836g2Dxp_JPEG%2FXbE-FC2WOol7dd-mSkU880zE.JPG.jpg",
+                        "category": "갤러리,화랑",
+                        "location": "서울 성동구 서울숲2길 32-14 갤러리아 포레 1F / B1F 아뜰리에 아키",
+                        "scoreByNaver": 0.0,
+                        "lat": 37.5457261,
+                        "lng": 127.0423333
+                    }
+                ],
+                "hashtagList": []
+            }
+        ],
+        "pageable": {
+            "sort": {
+                "empty": false,
+                "sorted": true,
+                "unsorted": false
+            },
+            "offset": 0,
+            "pageNumber": 0,
+            "pageSize": 20,
+            "paged": true,
+            "unpaged": false
+        },
+        "totalPages": 1,
+        "totalElements": 3,
+        "last": true,
+        "number": 0,
+        "sort": {
+            "empty": false,
+            "sorted": true,
+            "unsorted": false
+        },
+        "size": 20,
+        "numberOfElements": 3,
+        "first": true,
+        "empty": false
+    }
+}

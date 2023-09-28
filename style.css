@@ -1,0 +1,180 @@
+html,
+body {
+    font-family: Pretendard, 'Noto Sans KR', sans-serif;
+    height: 100%;
+
+}
+
+body {
+    margin: 0;
+    position: relative;
+}
+
+
+.header {
+    width: 100%;
+    height: auto;
+    display: inline;
+}
+
+.navbar-ul {
+    width: auto;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: orchid;
+    margin: 0;
+}
+
+
+
+.logo-img {
+    width: auto;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+.banner {
+    width: 100%;
+    height: 315px;
+    background-color: orange;
+    display: flex;
+}
+
+.banner-wrap {
+    width: 100%;
+    /* 공평하게 너비를 나눠가짐 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+}
+
+.banner-img {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    background-color: beige;
+}
+
+.container {
+    background-color: green;
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.feed-section {
+    width: auto;
+    height: 700px;
+    background-color: pink;
+    margin: 0 300px;
+}
+
+.select-region {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(121, 121, 240);
+    display: flex;
+    flex-direction: row;
+}
+
+.select-region-ul {
+    display: flex;
+    align-items: center;
+}
+
+.feed {
+    width: 100%;
+    min-height: auto;
+    background-color: rgb(0, 179, 255);
+}
+
+.card {
+    width: auto;
+    height: 500px;
+}
+
+.card-profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.card-img-bottom {
+    width: auto;
+    height: auto;
+}
+
+.more {
+    width: 100%;
+    height: 140px;
+    background-color: aquamarine;
+}
+
+
+
+.main-section {
+    background-color: pink;
+    width: 100%;
+    height: auto;
+}
+
+
+.body-section1 {
+    background-color: #F6F3FF;
+    width: auto;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.body-section2 {
+    background-color: white;
+    width: auto;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+}
+
+.body-section3 {
+    background-color: #F6F3FF;
+    width: auto;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+}
+
+.section-wrap {
+    width: 100%;
+    /* 공평하게 너비를 나눠가짐 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-text {
+    display: block;
+}
+
+.footer {
+    background-color: rgb(178, 78, 178);
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+}
+
+.top-keywords-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
