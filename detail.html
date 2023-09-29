@@ -19,8 +19,9 @@
         <div class="header">
             <div class="navbar">
                 <ul class="navbar-ul">
-                    <li>
-                        <img class="logo-img" src="./img/app-logo.png">
+                    <li><a href="index.html">
+                            <img class="logo-img" src="./img/app-logo.png">
+                        </a>
                     </li>
                     <li>
                         <a href="index.html">
@@ -48,7 +49,7 @@
                 <div class="profile-img"></div>
                 <div class="user-info-right-side">
                     <div class="user-nickname"></div>
-                    <div class="region">건대·성수</div>
+                    <div class="region">신촌·홍대</div>
                 </div>
             </div>
             <div class="course-info">
@@ -155,6 +156,14 @@
             }
 
             function loadCourseContent(courseData_data) {
+                // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정
+                let profileImage;
+                if (courseData_data.memberProfileImage == null) {
+                    profileImage = "./img/userImg-removebg.svg"
+                }
+                else {
+                    profileImage = content.memberProfileImage;
+                }
 
 
                 const profileImgContainer = document.querySelector('.profile-img');
@@ -163,14 +172,14 @@
                 const courseCatergoriesContainer = document.querySelector('.course-categories');
 
                 //const profileImg = courseData_data.memberProfileImage; // null
-                const profileImg = courseData_data.courseItems[0].imageUrl; // 임의
+                //const profileImg = courseData_data.courseItems[0].imageUrl; // 임의
                 const userNickname = courseData_data.nickname;
                 const courseName = courseData_data.courseName;
                 const cartegories = getCategories(courseData_data);
 
                 //console.log('course 정보', profileImg, userNickname, courseName, cartegories);
 
-                profileImgContainer.innerHTML = `<img class="card-profile-img" src = ${profileImg}>`;
+                profileImgContainer.innerHTML = `<img class="card-profile-img" src=${profileImage}>`;
                 userNicknameContainer.innerText = userNickname;
                 courseNameContainer.innerHTML = `<h2 class="card-title"> ${courseName}</h2 >`;
                 courseCatergoriesContainer.innerText = cartegories;
