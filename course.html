@@ -22,11 +22,13 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
+    <!-- <img src="../ForStudy/img/navigationbar.png"> -->
     <div class="container">
         <!--header-->
         <div class="header"> <!--style="width:100%; height:650px;"-->
-            <div class="navbar">
-                <ul class="navbar-ul">
+
+            <div class="navbar"> <a href="index.html"><img src="./img/test.png" width="1000px" ;height="5px"></a>
+                <!-- <ul class="navbar-ul">
                     <li>
                         <a href="index.html">
                             <img class="logo-img" src="./img/app-logo.png">
@@ -45,8 +47,9 @@
                     <li class="search">
                         <input type="search" placeholder="코스를 검색해보세요" onfocus="this.placeholder=''">
                     </li>
-                </ul>
+                </ul> -->
             </div>
+
             <div class="banner">
                 <div class="banner-wrap">
                     <div class="banner-text">
@@ -59,68 +62,68 @@
                     </div>
                 </div>
             </div>
-
-            <!--feed-section-->
-            <div class="feed-section">
-                <div class="select-region">
-                    <ul class="select-region-ul"> <!-- onclick 할 때 axios로 GET요청 -->
-                        <li><button type="submit" onclick="init();"><img class="select-region-img"
-                                    src="./img/region-img/all.svg">
-                        </li>
-                        <li><button type="submit" onclick="selectRegion('KSS');"><img class="select-region-img"
-                                    src="./img/region-img/kondea.svg">
-                        </li>
-                        <li><button type="submit" onclick="selectRegion('HSE');"><img class="select-region-img"
-                                    src="./img/region-img/hongdea.svg">
-                        </li>
-                        <li><button type="submit" onclick="selectRegion('SH');"><img class="select-region-img"
-                                    src="./img/region-img/hapjeong.svg">
-                        </li>
-                        <li><button type="submit" onclick="selectRegion('HI');"><img class="select-region-img"
-                                    src="./img/region-img/iteawon.svg">
-                        </li>
-                        <li><button type="submit" onclick="selectRegion('NS');"><img class="select-region-img"
-                                    src="./img/region-img/sinsa.svg">
-                        </li>
-                        <li><button type="submit" onclick="selectRegion('SBG');"><img class="select-region-img"
-                                    src="./img/region-img/seochon.svg">
-                        </li>
-                        <li><button type="submit" onclick="selectRegion('EM');"><img class="select-region-img"
-                                    src="./img/region-img/myeongdong.svg">
-                        </li>
-                    </ul>
-                </div>
-                <div class="feed"></div>
-                <div class="more">
-                    <div class="section-wrap">
-                        <div class="section-text">
-                            <p class="text">코스 내용을 상세하게 보고싶다면 <br>어디카세 앱을 다운받아 보세요!</p>
-                        </div>
-                    </div>
-                    <div class="section-wrap">
-                        <input class="move-button" type="button" onclick="location" href='#' value=" 앱 다운하러 가기">
+        </div>
+        <!--feed-section-->
+        <div class="feed-section">
+            <div class="select-region">
+                <ul class="select-region-ul"> <!-- onclick 할 때 axios로 GET요청 -->
+                    <li><button type="submit" onclick="init();"><img class="select-region-img"
+                                src="./img/region-img/all.svg">
+                    </li>
+                    <li><button type="submit" onclick="selectRegion('KSS');"><img class="select-region-img"
+                                src="./img/region-img/kondea.svg">
+                    </li>
+                    <li><button type="submit" onclick="selectRegion('HSE');"><img class="select-region-img"
+                                src="./img/region-img/hongdea.svg">
+                    </li>
+                    <li><button type="submit" onclick="selectRegion('SH');"><img class="select-region-img"
+                                src="./img/region-img/hapjeong.svg">
+                    </li>
+                    <li><button type="submit" onclick="selectRegion('HI');"><img class="select-region-img"
+                                src="./img/region-img/iteawon.svg">
+                    </li>
+                    <li><button type="submit" onclick="selectRegion('NS');"><img class="select-region-img"
+                                src="./img/region-img/sinsa.svg">
+                    </li>
+                    <li><button type="submit" onclick="selectRegion('SBG');"><img class="select-region-img"
+                                src="./img/region-img/seochon.svg">
+                    </li>
+                    <li><button type="submit" onclick="selectRegion('EM');"><img class="select-region-img"
+                                src="./img/region-img/myeongdong.svg">
+                    </li>
+                </ul>
+            </div>
+            <div class="feed"></div>
+            <div class="more">
+                <div class="section-wrap">
+                    <div class="section-text">
+                        <p class="text">코스 내용을 상세하게 보고싶다면 <br>어디카세 앱을 다운받아 보세요!</p>
                     </div>
                 </div>
-                <div class="footer">
-                    <ul class="top-keywords-list">
-                        <li>
-                            <a href="#">이용약관</a>
-                        </li>
-                        <li>
-                            <a href="#">개인정보처리방침</a>
-                        </li>
-                        <li>
-                            <a href="#">위치기반서비스 이용약관</a>
-                        </li>
-                    </ul>
+                <div class="section-wrap">
+                    <input class="move-button" type="button" onclick="location" href='#' value=" 앱 다운하러 가기">
                 </div>
             </div>
+            <div class="footer">
+                <ul class="top-keywords-list">
+                    <li>
+                        <a href="#">이용약관</a>
+                    </li>
+                    <li>
+                        <a href="#">개인정보처리방침</a>
+                    </li>
+                    <li>
+                        <a href="#">위치기반서비스 이용약관</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </div>
 
-        <!--footer-->
-        <div class="footer">
+    <!--footer-->
+    <div class="footer">
 
-        </div>
+    </div>
     </div>
 
 
