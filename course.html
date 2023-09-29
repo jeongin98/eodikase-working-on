@@ -24,7 +24,7 @@
 
     <div class="container">
         <!--header-->
-        <div class="header">
+        <div class="header"> <!--style="width:100%; height:650px;"-->
             <div class="navbar">
                 <ul class="navbar-ul">
                     <li>
@@ -63,154 +63,189 @@
                 <div class="select-region">
                     <ul class="select-region-ul"> <!-- onclick 할 때 axios로 GET요청 -->
                         <li><button type="submit" onclick="init();"><img class="select-region-img"
-                                    src="./img/all-region-img.png" alt="">
+                                    src="./img/region-img/all.svg">
                         </li>
                         <li><button type="submit" onclick="selectRegion('KSS');"><img class="select-region-img"
-                                    src="./img/kss-region-img.png" alt="">
+                                    src="./img/region-img/kondea.svg">
                         </li>
                         <li><button type="submit" onclick="selectRegion('HSE');"><img class="select-region-img"
-                                    src="./img/hse-region-img.png" alt="">
+                                    src="./img/region-img/hongdea.svg">
                         </li>
-                        <li><button type="submit" onclick="selectRegion('KSS');"><img class="select-region-img"
-                                    src="./img/hse-region-img.png" alt="">
+                        <li><button type="submit" onclick="selectRegion('SH');"><img class="select-region-img"
+                                    src="./img/region-img/hapjeong.svg">
                         </li>
-                        <li><button type="submit" onclick="selectRegion('KSS');"><img class="select-region-img"
-                                    src="./img/hse-region-img.png" alt="">
+                        <li><button type="submit" onclick="selectRegion('HI');"><img class="select-region-img"
+                                    src="./img/region-img/iteawon.svg">
+                        </li>
+                        <li><button type="submit" onclick="selectRegion('NS');"><img class="select-region-img"
+                                    src="./img/region-img/sinsa.svg">
+                        </li>
+                        <li><button type="submit" onclick="selectRegion('SBG');"><img class="select-region-img"
+                                    src="./img/region-img/seochon.svg">
+                        </li>
+                        <li><button type="submit" onclick="selectRegion('EM');"><img class="select-region-img"
+                                    src="./img/region-img/myeongdong.svg">
                         </li>
                     </ul>
                 </div>
                 <div class="feed"></div>
-                <div class="more">more</div>
-            </div>
-
-            <!--footer-->
-            <div class="footer">
-
+                <div class="more">
+                    <div class="section-wrap">
+                        <div class="section-text">
+                            <p class="text">코스 내용을 상세하게 보고싶다면 <br>어디카세 앱을 다운받아 보세요!</p>
+                        </div>
+                    </div>
+                    <div class="section-wrap">
+                        <input class="move-button" type="button" onclick="location" href='https://www.naver.com/'
+                            value=" 앱 다운하러 가기">
+                    </div>
+                </div>
+                <div class="footer">
+                    <ul class="top-keywords-list">
+                        <li>
+                            <a href="#">이용약관</a>
+                        </li>
+                        <li>
+                            <a href="#">개인정보처리방침</a>
+                        </li>
+                        <li>
+                            <a href="#">위치기반서비스 이용약관</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
+        <!--footer-->
+        <div class="footer">
+
+        </div>
+    </div>
 
 
 
 
 
 
-        <script>
-            // 피드 화면 만드는 함수
-            function loadFeedContent(courseData) {
-                const container = document.querySelector('.feed'); // courseData는 Array // courseData === response.data.data.content
-                courseData.forEach((content) => {
-                    console.log('why');
-                    //let profileImage;
-                    let profileImage;
-                    //typeof (content.memberProfileImage.imgUrl);
-                    if (content.memberProfileImage == null)
-                        profileImage = "./img/hse-region-img.png";
 
-                    console.log('why22');
-                    const courseId = content.courseId;
-                    const courseName = content.courseName;
-                    const courseDescription = content.courseDescription;
-                    profileImage = content.memberProfileImage;
-                    //const imageUrl = "./img/hse-region-img.png";
-                    const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
+    <script>
+        // 피드 화면 만드는 함수
+        function loadFeedContent(courseData) {
+            const container = document.querySelector('.feed'); // courseData는 Array // courseData === response.data.data.content
+            courseData.forEach((content) => {
+                console.log('why');
+                //let profileImage;
+                let profileImage;
+                //typeof (content.memberProfileImage.imgUrl);
+                if (content.memberProfileImage == null)
+                    profileImage = "./img/hse-region-img.png";
+
+                console.log('why22');
+                profileImage = content.memberProfileImage; ////////
+                const courseId = content.courseId;
+                const nickname = content.nickname;
+                const courseName = content.courseName;
+                const courseDescription = content.courseDescription;
+
+                //const imageUrl = "./img/hse-region-img.png";
+                const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
 
 
-                    //<a href="#" onclick="함수명(매개변수);">a링크</a>
-                    // appendchild로 변경
-                    container.innerHTML += `
+                //<a href="#" onclick="함수명(매개변수);">a링크</a>
+                // appendchild로 변경
+                container.innerHTML += `
                         <a href="#" onclick="courseDetail(${courseId});">
                          <div class="card">
                     <div>
                         <img class="card-profile-img" src=${profileImage}>
-                        <h4>${courseId}</h4>
+                        <h4 class="user-nickname">${nickname}</h4>
                     </div>
-                    <h5 class="card-title">${courseName}</h5>
+                    <h5 class="card-title" >${courseName}</h5>
                     <p class="card-text">${courseDescription}</p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     <img src= ${imageUrl} class="card-img-bottom">
-                     </div>
+                     </div> 
                      </a>
                 `;
-                    // 이 부분이 해결되어야함//해결됨
-                    // console.log('container.innerHTML', container.innerHTML);
+                // 이 부분이 해결되어야함//해결됨
+                // console.log('container.innerHTML', container.innerHTML);
+            });
+
+        }
+
+
+        //container.innerText = JSON.stringify(courseData, null, 2);
+
+
+
+        // const axios = require('axios');
+        // 전국 코스 가져오기
+
+        function courseDetail(courseId) {
+            // console.log(courseId);
+            axios.get(`https://eodikase.com/v1/courses/course/${courseId}`)
+                .then(function (response) {
+                    // 성공시 경우 실행
+                    console.log('GET Region Response Data:', response.data);
+                    location.href = "detail.html";
+                    //dataContainer.innerText = '결과: ' + JSON.stringify(response.data, null, 2);
+                    // console.log('response', response.data.data.content);
+                    //loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
+                    // const container = document.querySelector('.feed');
+                    //container.innerHTML = '';
+                    //loadFeedContent(response.data.data.content);
+                })
+                .catch(function (error) {
+                    // 에러인 경우 실행
+                    console.log(error);
                 });
+        }
 
-            }
+        function selectRegion(region) {
+            // container 초기화한 다음 채워넣기 + 라우팅은 전체 페이지 바뀔 때만
 
+            axios.get(`https://eodikase.com/v1/courses/region/${region}`)
+                .then(function (response) {
+                    // 성공시 경우 실행
+                    console.log('GET Region Response Data:', response.data);
+                    //dataContainer.innerText = '결과: ' + JSON.stringify(response.data, null, 2);
+                    console.log('response', response.data.data.content);
+                    //loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
+                    const container = document.querySelector('.feed');
+                    container.innerHTML = '';
+                    loadFeedContent(response.data.data.content);
+                })
+                .catch(function (error) {
+                    // 에러인 경우 실행
+                    console.log(error);
 
-            //container.innerText = JSON.stringify(courseData, null, 2);
+                });
+        }
 
+        function loadCourseData() {
+            axios.post('https://eodikase.com/v1/courses')
+        }
 
-
-            // const axios = require('axios');
-            // 전국 코스 가져오기
-
-            function courseDetail(courseId) {
-                // console.log(courseId);
-                axios.get(`https://eodikase.com/v1/courses/course/${courseId}`)
-                    .then(function (response) {
-                        // 성공시 경우 실행
-                        console.log('GET Region Response Data:', response.data);
-                        location.href = "detail.html";
-                        //dataContainer.innerText = '결과: ' + JSON.stringify(response.data, null, 2);
-                        // console.log('response', response.data.data.content);
-                        //loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
-                        // const container = document.querySelector('.feed');
-                        //container.innerHTML = '';
-                        //loadFeedContent(response.data.data.content);
-                    })
-                    .catch(function (error) {
-                        // 에러인 경우 실행
-                        console.log(error);
-                    });
-            }
-
-            function selectRegion(region) {
-                // container 초기화한 다음 채워넣기 + 라우팅은 전체 페이지 바뀔 때만
-
-                axios.get(`https://eodikase.com/v1/courses/region/${region}`)
-                    .then(function (response) {
-                        // 성공시 경우 실행
-                        console.log('GET Region Response Data:', response.data);
-                        //dataContainer.innerText = '결과: ' + JSON.stringify(response.data, null, 2);
-                        console.log('response', response.data.data.content);
-                        //loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
-                        const container = document.querySelector('.feed');
-                        container.innerHTML = '';
-                        loadFeedContent(response.data.data.content);
-                    })
-                    .catch(function (error) {
-                        // 에러인 경우 실행
-                        console.log(error);
-
-                    });
-            }
-
-            function loadCourseData() {
-                axios.post('https://eodikase.com/v1/courses')
-            }
-
-            function init() {
-                axios.get('https://eodikase.com/v1/courses')
-                    .then(function (response) {
-                        // 성공시 경우 실행
-                        console.log('GET!! Response Data:', response.data);
-                        //dataContainer.innerText = '결과: ' + JSON.stringify(response.data, null, 2);
-                        // console.log('response', response.data.data.content);
-                        loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
-                        console.log('GET!!!');
-                    })
-                    .catch(function (error) {
-                        // 에러인 경우 실행
-                        console.log('error');
-                        console.log(error);
-                    });
-            }
+        function init() {
+            axios.get('https://eodikase.com/v1/courses')
+                .then(function (response) {
+                    // 성공시 경우 실행
+                    console.log('GET!! Response Data:', response.data);
+                    //dataContainer.innerText = '결과: ' + JSON.stringify(response.data, null, 2);
+                    // console.log('response', response.data.data.content);
+                    loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
+                    console.log('GET!!!');
+                })
+                .catch(function (error) {
+                    // 에러인 경우 실행
+                    console.log('error');
+                    console.log(error);
+                });
+        }
 
 
-            init();
-        </script>
+        init();
+    </script>
 
 </body>
 
