@@ -23,10 +23,14 @@
                         <img class="logo-img" src="./img/app-logo.png">
                     </li>
                     <li>
-                        <a href="index.html">어디카세</a>
+                        <a href="index.html">
+                            <h2>어디카세</h2>
+                        </a>
                     </li>
                     <li>
-                        <a href="course.html">코스 둘러보기</a>
+                        <a href="course.html">
+                            <h2>코스 둘러보기</h2>
+                        </a>
                     </li>
                     <li class="search">
                         <input type="search" placeholder="코스나 매장을 검색해보세요" onfocus="this.placeholder=''"
@@ -46,12 +50,27 @@
                 <div class="course-categories"></div>
             </div>
             <div class="map-info">
-                <h3>코스 정보</h3>
-                <div id="map" style="width:100%; height:800px;"></div>
+                <div class="map-info-text">
+                    <h1>코스 정보</h1>
+                </div>
+
+                <div id="map" style="width:100%; height:700px;"></div>
             </div>
             <div class="more">more</div>
         </div>
-        <div class="footer"></div>
+        <div class="footer">
+            <ul class="top-keywords-list">
+                <li>
+                    <a href="#">이용약관</a>
+                </li>
+                <li>
+                    <a href="#">개인정보처리방침</a>
+                </li>
+                <li>
+                    <a href="#">위치기반서비스 이용약관</a>
+                </li>
+            </ul>
+        </div>
     </div>
 
 
@@ -108,41 +127,48 @@
         /* 함수*/
 
         // 코스 정보(course-info) 영역
-        function loadFeedContent(courseData) {
-            const container = document.querySelector('.course-info'); // courseData는 Array 
-            console.log('adh');
-            console.log('courseData', courseData);
-            console.log('courseData.courseId', courseData.courseId);
-
-            // location은 매장 하나
-            console.log('ah');
-            // 유저 이미지
-            function loadCourseContent(courseData) {
-                const profileImgContainer = document.querySelector('.profile-img');
-                courseData.forEach((content) => {
-                    const profileImg = content.memberProfileImage;
+        // 유저 이미지
+        // 유저 닉네임
+        // 코스 이름
+        // 코스 카테고리
+        function loadCourseContent(courseData_data) {
 
 
-                    profileImgContainer.innerHTML = profileImg;
-                });
-            }
-            // 유저 닉네임
-            // 코스 이름
-            // 코스 카테고리
+            const profileImgContainer = document.querySelector('.profile-img');
+            const userNicknameContainer = document.querySelector('.user-nickname');
+            const courseNameContainer = document.querySelector('.course-name');
+            const courseCatergoriesContainer = document.querySelector('.course-categories');
 
+            //const profileImg = courseData_data.memberProfileImage; // null
+            const profileImg = courseData_data.courseItems[0].imageUrl; // 임의
+            const userNickname = courseData_data.nickname;
+            const courseName = courseData_data.courseName;
+            const cartegories = getCategories(courseData_data);
+
+            //console.log('course 정보', profileImg, userNickname, courseName, cartegories);
+
+            profileImgContainer.innerHTML = `<img class="card-profile-img" src=${profileImg}>`
+            userNicknameContainer.innerText = userNickname;
+            courseNameContainer.innerHTML = `<h2 class="card-title">${courseName}</h2>`;
+            courseCatergoriesContainer.innerText = cartegories;
 
         }
 
+
+
+
+
         // content 배열에서 모든 courseItems의 category 속성을 추출하여 배열 만들기
-        function getCategories(courseData) {
-            const categories = courseData.data.courseItems.map((store) => {
+        function getCategories(courseData_data) {
+            const categories = courseData_data.courseItems.map((store) => {
                 const category = store.category.split(',')[0].trim();
                 //console.log('category', category);
                 return category;
             });
 
-
             console.log('categories', categories);
+
+            return categories; // 매장 정보 담긴 categories 반환
         }
 
 
@@ -174,8 +200,8 @@
                     // 성공시 경우 실행
                     console.log('GET Response Data:', response.data.data);
                     getLocations(response.data.data);
-                    loadFeedContent(response.data.data); // 성공시 피드 화면 만드는 함수 실행
-                    getCategories(response.data);
+                    loadCourseContent(response.data.data); // 성공시 피드 화면 만드는 함수 실행
+
                 })
                 .catch(function (error) {
                     // 에러인 경우 실행

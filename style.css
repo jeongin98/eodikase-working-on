@@ -10,6 +10,10 @@ body {
     position: relative;
 }
 
+h2,
+h3 {
+    margin: 0;
+}
 
 .header {
     width: 100%;
@@ -34,21 +38,35 @@ body {
     width: auto;
     height: auto;
     background-color: pink;
-    padding: 0 300px;
+    padding: 0 500px;
     /* height는 임의 */
 }
 
 .user-info {
     width: 100%;
-    height: 300px;
-    background-color: blue;
+    min-height: auto;
+    background-color: rgb(140, 140, 241);
     margin: 0;
+    padding: 10px 0;
+}
+
+.profile-img {
+    display: inline-block;
+}
+
+.user-nickname {
+    display: inline-block;
 }
 
 .course-info {
     width: 100%;
-    height: 400px;
+    height: auto;
     background-color: aqua;
+    padding: 20px 0;
+}
+
+.course-name {
+    padding: 40px 0 10px 0;
 }
 
 .map-info {
@@ -58,6 +76,9 @@ body {
     margin: 0;
 }
 
+.map-info-text {
+    padding: 20px 0 5px 0;
+}
 
 .navbar-ul {
     width: auto;
