@@ -17,6 +17,7 @@ h3 {
 
 a {
     text-decoration-line: none;
+    /*card 내부 a태그에서는 적용이 안 돼서 직접 태그 내부 style로 삽입 밑줄은*/
 }
 
 .header {
@@ -73,16 +74,39 @@ img {
     width: 100%;
     min-height: auto;
     padding: 10px 0;
+    display: flex;
+    align-items: flex-start;
+
 }
 
 .profile-img {
     display: inline-block;
 }
 
-.user-nickname {
+.card-user-nickname {
     color: black;
+    margin: 0 0 0 3px;
+    font-weight: 550;
+    font-size: 15px;
     display: inline-block;
+}
+
+.user-info-right-side .user-nickname {
+    color: black;
     margin: 0 0 0 10px;
+    display: flex;
+    font-weight: 550;
+    font-size: 20px;
+}
+
+
+.user-info-right-side .region {
+    margin: 10px 0 0 10px;
+    color: grey;
+}
+
+.course-detail .region {
+    display: inline-block;
 }
 
 .course-info {
@@ -191,13 +215,14 @@ ul {
 .feed {
     width: 100%;
     min-height: auto;
-
 }
 
 .card {
     width: auto;
     height: 500px;
+
 }
+
 
 .card-profile-img,
 .profile-img {
@@ -215,7 +240,10 @@ ul {
 .card-title,
 .card-text {
     color: black;
+}
 
+.card {
+    padding: 20px 0 0 0;
 }
 
 .more {

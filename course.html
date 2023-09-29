@@ -133,15 +133,16 @@
         function loadFeedContent(courseData) {
             const container = document.querySelector('.feed'); // courseData는 Array // courseData === response.data.data.content
             courseData.forEach((content) => {
-                console.log('why');
-                //let profileImage;
-                let profileImage;
-                //typeof (content.memberProfileImage.imgUrl);
-                if (content.memberProfileImage == null)
-                    profileImage = "./img/hse-region-img.png";
 
-                console.log('why22');
-                profileImage = content.memberProfileImage; ////////
+                // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정
+                let profileImage;
+                if (content.memberProfileImage == null) {
+                    profileImage = "./img/userImg-removebg.svg"
+                }
+                else {
+                    profileImage = content.memberProfileImage;
+                }
+
                 const courseId = content.courseId;
                 const nickname = content.nickname;
                 const courseName = content.courseName;
@@ -150,15 +151,12 @@
                 //const imageUrl = "./img/hse-region-img.png";
                 const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
 
-
-                //<a href="#" onclick="함수명(매개변수);">a링크</a>
-                // appendchild로 변경
                 container.innerHTML += `
-                        <a href="#" onclick="courseDetail(${courseId});">
-                         <div class="card">
-                    <div>
+                        <a href="#" onclick="courseDetail(${courseId});" style="text-decoration-line: none">
+                         <div class="card" >
+                    <div >
                         <img class="card-profile-img" src=${profileImage}>
-                        <h4 class="user-nickname">${nickname}</h4>
+                        <h4 class="card-user-nickname">${nickname}</h4>
                     </div>
                     <h5 class="card-title" >${courseName}</h5>
                     <p class="card-text">${courseDescription}</p>
