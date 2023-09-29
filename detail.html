@@ -24,21 +24,24 @@
                     </li>
                     <li>
                         <a href="index.html">
-                            <h2>어디카세</h2>
+                            <h3>어디카세</h3>
                         </a>
                     </li>
                     <li>
                         <a href="course.html">
-                            <h2>코스 둘러보기</h2>
+                            <h3>코스 둘러보기</h3>
                         </a>
                     </li>
                     <li class="search">
-                        <input type="search" placeholder="코스나 매장을 검색해보세요" onfocus="this.placeholder=''"
-                            onblur="this.placeholder='코스나 매장을 검색해보세요'">
+                        <input type="search" placeholder="코스를 검색해보세요" onfocus="this.placeholder=''">
                     </li>
                 </ul>
             </div>
-            <div class="img-banner"></div>
+            <div class="img-banner">
+                <div class="store-img"></div>
+                <div class="store-img"></div>
+                <div class="store-img"></div>
+            </div>
         </div>
         <div class="course-detail">
             <div class="user-info">
@@ -123,14 +126,22 @@
             drawMap(locations);
         }
 
+        function loadImgBanner(courseData_data) {
+            // 첫 번째 store-img 요소를 선택하고 내용을 변경
+            var firstStoreImg = document.querySelector('.img-banner .store-img:first-child');
+            firstStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[0].imageUrl} >`;
 
-        /* 함수*/
+            // 두 번째 store-img 요소를 선택하고 내용을 변경
+            var secondStoreImg = document.querySelector('.img-banner .store-img:nth-child(2)');
+            secondStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[1].imageUrl} >`;
 
-        // 코스 정보(course-info) 영역
-        // 유저 이미지
-        // 유저 닉네임
-        // 코스 이름
-        // 코스 카테고리
+            // 세 번째 store-img 요소를 선택하고 내용을 변경
+            var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
+            thirdStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[2].imageUrl} >`;
+            // const imageUrl = courseData_data.courseItems[0].imageUrl; // 이후 배열 처리
+
+        }
+
         function loadCourseContent(courseData_data) {
 
 
@@ -147,9 +158,9 @@
 
             //console.log('course 정보', profileImg, userNickname, courseName, cartegories);
 
-            profileImgContainer.innerHTML = `<img class="card-profile-img" src=${profileImg}>`
+            profileImgContainer.innerHTML = `<img class="card-profile-img" src = ${profileImg}>`;
             userNicknameContainer.innerText = userNickname;
-            courseNameContainer.innerHTML = `<h2 class="card-title">${courseName}</h2>`;
+            courseNameContainer.innerHTML = `<h2 class="card-title"> ${courseName}</h2 >`;
             courseCatergoriesContainer.innerText = cartegories;
 
         }
@@ -180,7 +191,7 @@
 
         //     const url = window.location.pathname;
         //     const container = document.querySelector('.course-info'); // courseData는 Array // courseData === response.data.data.content
-        //     container.innerHTML += ` <div>
+        //     container.innerHTML += ` < div >
         //                 <h4>${url}</h4>
         //             </div>`;
         // }
@@ -200,6 +211,7 @@
                     // 성공시 경우 실행
                     console.log('GET Response Data:', response.data.data);
                     getLocations(response.data.data);
+                    loadImgBanner(response.data.data);
                     loadCourseContent(response.data.data); // 성공시 피드 화면 만드는 함수 실행
 
                 })
