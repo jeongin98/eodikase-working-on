@@ -35,6 +35,11 @@ a {
     border-style: none none solid none;*/
 }
 
+.section-wrap img {
+    width: 700px;
+    height: 600px;
+}
+
 .img-banner {
     width: 100%;
     height: 400px;
@@ -309,9 +314,6 @@ ul {
     display: block;
 }
 
-
-
-
 .footer {
     background-color: rgb(251, 250, 250);
     width: 100%;
@@ -329,5 +331,4 @@ ul {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
 }
