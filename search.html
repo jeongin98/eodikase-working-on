@@ -84,13 +84,20 @@
             performSearch(keyword);
         }
         else {
-            // 키워드가 비어있을 때
+            printEmptySearch();
+        }
+
+        // 빈칸 검색시 
+        function printEmptySearch() {
+            const search_feed = document.querySelector('.search-feed');
+            search_feed.innerHTML = `
+            <p style="height: 100px; display: flex; justify-content: center; align-items: center;"> 
+                아무것도 입력하지 않았습니다. 다시 검색해주세요. 
+                </p>`;
         }
 
         // keyword 정보 요청 함수
         function performSearch(keyword) {
-            //const keyword = searchInput.value;
-
             // 요청을 보낼 URL 설정
             const apiUrl = `https://eodikase.com/v1/courses/title/search?keyword=${keyword}`;
 
