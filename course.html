@@ -351,7 +351,7 @@
             // 첫 번째 store-img 요소를 선택하고 내용을 변경
             var firstStoreImg = document.querySelector('.img-banner .store-img:first-child');
             if (courseData_data.courseItems[0].imageUrl == "") {
-                firstStoreImg.innerHTML += `<img src = ./img/no-img.jpg>` //임의
+                firstStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
             }
             else {
                 firstStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[0].imageUrl} >`;
@@ -360,7 +360,7 @@
             // 두 번째 store-img 요소를 선택하고 내용을 변경
             var secondStoreImg = document.querySelector('.img-banner .store-img:nth-child(2)');
             if (courseData_data.courseItems[1].imageUrl == "") {
-                secondStoreImg.innerHTML += `<img src = ./img/no-img.jpg>` //임의
+                secondStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
             }
             else {
                 secondStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[1].imageUrl} >`;
@@ -370,7 +370,7 @@
             var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
 
             if (courseData_data.courseItems[2].imageUrl == "") {
-                thirdStoreImg.innerHTML += `<img src = ./img/no-img.jpg>` //임의
+                thirdStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
             }
             else {
                 thirdStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[2].imageUrl} >`;
