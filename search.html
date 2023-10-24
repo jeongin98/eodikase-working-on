@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색 결과</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- axios -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css"
+        href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header">
+                <ul class="navbar-ul">
+                    <li><a href="index.html">
+                            <img class="logo-img" src="./img/app-logo.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <h3>어디카세</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course.html">
+                            <h3>코스 둘러보기</h3>
+                        </a>
+                    </li>
+                    <li class="search">
+                        <form action="./search.html" method="get">
+                            <input type="search" name="keyword" placeholder="코스를 검색해보세요">
+                            <input type="submit" value="검색">
+                        </form>
+                    </li>
+                </ul>
+                <div class="header-line" style="width:100%;height:20px;margin:5px;background-color: gray;">
+                </div>
+            </div>
+        </div>
+        <!-- search-section -->
+        <div class="search-section">
+            <div class="search-feed"></div>
+            <div class="more">
+                <div class="section-wrap">
+                    <div class="section-text">
+                        <p class="text">코스 내용을 상세하게 보고싶다면 <br>어디카세 앱을 다운받아 보세요!</p>
+                    </div>
+                </div>
+                <div class="section-wrap">
+                    <input class="move-button" type="button" onclick="location" href='https://www.naver.com/'
+                        value=" 앱 다운하러 가기">
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer">
+            <ul class="top-keywords-list">
+                <li>
+                    <a href="#">이용약관</a>
+                </li>
+                <li>
+                    <a href="#">개인정보처리방침</a>
+                </li>
+                <li>
+                    <a href="#">위치기반서비스 이용약관</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // URL에서 검색어를 추출
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const keyword = urlParams.get('keyword');
+
+        // 검색어를 처리하고 표시
+        if (keyword) {
+            performSearch(keyword);
+        }
+        else {
+            // 키워드가 비어있을 때
+        }
+
+        // keyword 정보 요청 함수
+        function performSearch(keyword) {
+            //const keyword = searchInput.value;
+
+            // 요청을 보낼 URL 설정
+            const apiUrl = `https://eodikase.com/v1/courses/title/search?keyword=${keyword}`;
+
+            // Axios를 사용하여 GET 요청 보내기
+            axios.get(apiUrl)
+                .then(response => {
+                    loadSearchFeedContent(response.data.data.content);
+                })
+                .catch(error => {
+                    console.error('검색 오류:', error);
+                });
+        }
+
+        // Search 피드 화면 만드는 함수
+        function loadSearchFeedContent(courseData) {
+            const search_feed = document.querySelector('.search-feed');
+            courseData.forEach((content) => {
+
+                // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정 
+                let profileImage;
+                if (content.memberProfileImage == null) {
+                    profileImage = "./img/userImg-removebg.svg"
+                }
+                else {
+                    profileImage = content.memberProfileImage;
+                }
+
+                const courseId = content.courseId;
+                const nickname = content.nickname;
+                const courseName = content.courseName;
+                const courseDescription = content.courseDescription;
+
+                //const imageUrl = "./img/hse-region-img.png";
+                const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
+
+                search_feed.innerHTML += `
+                        <a href="#" onclick="detail(${courseId});" style="text-decoration-line: none">
+                         <div class="card" >
+                    <div >
+                        <img class="card-profile-img" src=${profileImage}>
+                        <h4 class="card-user-nickname">${nickname}</h4>
+                    </div>
+                    <h5 class="card-title" >${courseName}</h5>
+                    <p class="card-text">${courseDescription}</p>
+                    <p class="card-text"><small class="text-muted">1시간 전</small></p>
+                    <img src= ${imageUrl} class="card-img-bottom">
+                     </div> 
+                     </a>
+                `;
+
+            });
+        }
+
+
+    </script>
+
+    <!--
+    <script>
+        // input submit되면 처리 함수
+        // loadSearchFeedContent함수에 키워드 전달
+        // 해당 키워드로 get 요청
+        // 받아온 정보로 피드 load하기
+        // Enter 키를 누를 때 검색 실행
+        document.getElementById('searchInput').addEventListener('search', performSearch);
+
+
+        // 검색 수행 함수
+        function performSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const keyword = searchInput.value;
+
+            // 요청을 보낼 URL 설정
+            const apiUrl = `https://eodikase.com/v1/courses/title/search?keyword=${keyword}`;
+
+            // Axios를 사용하여 GET 요청 보내기
+            axios.get(apiUrl)
+                .then(response => {
+                    // 결과를 처리하거나 표시할 부분
+                    // console.log('response.data : ', response.data.data.content);
+                    loadSearchFeedContent(response.data.data.content);
+                })
+                .catch(error => {
+                    console.error('검색 오류:', error);
+                });
+        }
+
+        // Search 피드 화면 만드는 함수
+        function loadSearchFeedContent(courseData) {
+            const search_section = document.querySelector('.search-section');
+            courseData.forEach((content) => {
+
+                // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정 
+                let profileImage;
+                if (content.memberProfileImage == null) {
+                    profileImage = "./img/userImg-removebg.svg"
+                }
+                else {
+                    profileImage = content.memberProfileImage;
+                }
+
+                const courseId = content.courseId;
+                const nickname = content.nickname;
+                const courseName = content.courseName;
+                const courseDescription = content.courseDescription;
+
+                //const imageUrl = "./img/hse-region-img.png";
+                const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
+
+                search_section.innerHTML += `
+                        <a href="#" onclick="detail(${courseId});" style="text-decoration-line: none">
+                         <div class="card" >
+                    <div >
+                        <img class="card-profile-img" src=${profileImage}>
+                        <h4 class="card-user-nickname">${nickname}</h4>
+                    </div>
+                    <h5 class="card-title" >${courseName}</h5>
+                    <p class="card-text">${courseDescription}</p>
+                    <p class="card-text"><small class="text-muted">1시간 전</small></p>
+                    <img src= ${imageUrl} class="card-img-bottom">
+                     </div> 
+                     </a>
+                `;
+
+            });
+        }
+    </script>
+    -->
+</body>
+
+</html>

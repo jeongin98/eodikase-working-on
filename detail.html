@@ -250,11 +250,10 @@
                     .then(function (response) {
                         // 성공시 경우 실행
                         // console.log('GET Response Data:', response.data.data);
-                        // getLocations(response.data.data);
-                        // loadImgBanner(response.data.data);
-                        // loadCourseContent(response.data.data); // 성공시 피드 화면 만드는 함수 실행
-                        var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
-                        alert(newURL);
+                        getLocations(response.data.data);
+                        loadImgBanner(response.data.data);
+                        loadCourseContent(response.data.data); // 성공시 피드 화면 만드는 함수 실행
+                        // var newURL = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
                     })
                     .catch(function (error) {
                         // 에러인 경우 실행

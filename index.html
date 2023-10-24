@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>어디카세</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- axios -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css"
         href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'>
@@ -13,9 +14,6 @@
 </head>
 
 <body>
-    <script>
-    </script>
-
     <div class="container">
         <div class="header">
             <ul class="navbar-ul">
@@ -34,7 +32,11 @@
                     </a>
                 </li>
                 <li class="search">
-                    <input type="search" placeholder="코스를 검색해보세요" onfocus="this.placeholder=''">
+                    <form action="./search.html" method="get">
+                        <input type="search" name="keyword" placeholder="코스를 검색해보세요">
+                        <input type="submit" value="검색">
+                    </form>
+                    <!--<input type="search" placeholder="코스를 검색해보세요" onfocus="this.placeholder=''">-->
                 </li>
             </ul>
         </div>
