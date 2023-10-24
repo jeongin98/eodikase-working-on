@@ -92,7 +92,7 @@
             const search_feed = document.querySelector('.search-feed');
             search_feed.innerHTML = `
             <p style="height: 100px; display: flex; justify-content: center; align-items: center;"> 
-                아무것도 입력하지 않았습니다. 다시 검색해주세요. 
+                아무것도 입력하지 않았습니다. <br> 다른 검색어를 입력해보세요. 
                 </p>`;
         }
 
@@ -114,26 +114,33 @@
         // Search 피드 화면 만드는 함수
         function loadSearchFeedContent(courseData) {
             const search_feed = document.querySelector('.search-feed');
-            courseData.forEach((content) => {
+            console.log('courseData ', courseData);
+            if (courseData.length === 0) {
+                search_feed.innerHTML = `
+            <p style="height: 400px; display: flex; justify-content: center; align-items: center;"> 
+                결과를 조회할 수 없습니다. <br> 다른 검색어를 입력해보세요.
+                </p>`;
+            } else {
+                courseData.forEach((content) => {
 
-                // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정 
-                let profileImage;
-                if (content.memberProfileImage == null) {
-                    profileImage = "./img/userImg-removebg.svg"
-                }
-                else {
-                    profileImage = content.memberProfileImage;
-                }
+                    // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정 
+                    let profileImage;
+                    if (content.memberProfileImage == null) {
+                        profileImage = "./img/userImg-removebg.svg"
+                    }
+                    else {
+                        profileImage = content.memberProfileImage;
+                    }
 
-                const courseId = content.courseId;
-                const nickname = content.nickname;
-                const courseName = content.courseName;
-                const courseDescription = content.courseDescription;
+                    const courseId = content.courseId;
+                    const nickname = content.nickname;
+                    const courseName = content.courseName;
+                    const courseDescription = content.courseDescription;
 
-                //const imageUrl = "./img/hse-region-img.png";
-                const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
+                    //const imageUrl = "./img/hse-region-img.png";
+                    const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
 
-                search_feed.innerHTML += `
+                    search_feed.innerHTML += `
                         <a href="#" onclick="detail(${courseId});" style="text-decoration-line: none">
                          <div class="card" >
                     <div >
@@ -148,7 +155,8 @@
                      </a>
                 `;
 
-            });
+                });
+            }
         }
 
 
