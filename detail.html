@@ -8,6 +8,7 @@
     <title>특정 코스 상세보기
     </title>
     <link rel="stylesheet" href="style.css"><!-- 새로운 css파일 -->
+    <script src="https://kit.fontawesome.com/7ba0285b0d.js" crossorigin="anonymous"></script> <!-- Font Awesome icon -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- axios 추가 -->
     <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qxgq0uh1ml"></script>
@@ -37,6 +38,11 @@
                         <input type="search" placeholder="코스를 검색해보세요" onfocus="this.placeholder=''">
                     </li>
                 </ul>
+            </div>
+            <div class="back" style="margin:200px 14%;">
+                <a href="course.html">
+                    <i class="fa-solid fa-arrow-left fa-2x" style="color:blueviolet"></i>
+                </a>
             </div>
             <div class="img-banner">
                 <div class="store-img"></div>
@@ -143,15 +149,17 @@
                 // 첫 번째 store-img 요소를 선택하고 내용을 변경
                 var firstStoreImg = document.querySelector('.img-banner .store-img:first-child');
                 firstStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[0].imageUrl} >`;
+                console.log('courseData_data.courseItems[0].imageUr', courseData_data.courseItems[0].imageUr);
 
                 // 두 번째 store-img 요소를 선택하고 내용을 변경
                 var secondStoreImg = document.querySelector('.img-banner .store-img:nth-child(2)');
                 secondStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[1].imageUrl} >`;
+                console.log('courseData_data.courseItems[1].imageUr', courseData_data.courseItems[1].imageUr);
 
                 // 세 번째 store-img 요소를 선택하고 내용을 변경
                 var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
                 thirdStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[2].imageUrl} >`;
-                // const imageUrl = courseData_data.courseItems[0].imageUrl; // 이후 배열 처리
+                console.log('courseData_data.courseItems[2].imageUr', courseData_data.courseItems[2].imageUr);
 
             }
 
@@ -170,9 +178,6 @@
                 const userNicknameContainer = document.querySelector('.user-nickname');
                 const courseNameContainer = document.querySelector('.course-name');
                 const courseCatergoriesContainer = document.querySelector('.course-categories');
-
-                //const profileImg = courseData_data.memberProfileImage; // null
-                //const profileImg = courseData_data.courseItems[0].imageUrl; // 임의
                 const userNickname = courseData_data.nickname;
                 const courseName = courseData_data.courseName;
                 const cartegories = getCategories(courseData_data);
@@ -203,46 +208,6 @@
                 return categories; // 매장 정보 담긴 categories 반환
             }
 
-
-
-            // 특정 코스 조회
-            // const data = ;
-            // function init() {
-
-
-            //     const url = window.location.pathname;
-            //     const container = document.querySelector('.course-info'); // courseData는 Array // courseData === response.data.data.content
-            //     container.innerHTML += ` < div >
-            //                 <h4>${url}</h4>
-            //             </div>`;
-            // }
-
-
-
-            // init();
-
-
-
-
-            /* 과외 전 살짝 고침*/
-
-            // function init(courseId) {
-            //     axios.get(`https://eodikase.com/v1/courses/course/${courseId}`)
-            //         .then(function (response) {
-            //             // 성공시 경우 실행
-            //             console.log('GET Response Data:', response.data.data);
-            //             getLocations(response.data.data);
-            //             loadImgBanner(response.data.data);
-            //             loadCourseContent(response.data.data); // 성공시 피드 화면 만드는 함수 실행
-
-            //         })
-            //         .catch(function (error) {
-            //             // 에러인 경우 실행
-            //             console.log('error');
-            //         });
-            // }
-
-
             function init() {
                 /* location.href를 이용해 변경해야할 부분 */
                 axios.get('https://eodikase.com/v1/courses/course/48')
@@ -259,19 +224,6 @@
                         // 에러인 경우 실행
                         console.log('error');
                     });
-
-
-
-
-
-                // var numberPart = url.match(/(\d+)/);
-                // if (numberPart) {
-                //     var extractedNumber = numberPart[1];
-                //     // console.log(extractedNumber);
-                //     alert(extractedNumber);
-                // } else {
-                //     console.log("숫자 부분을 찾을 수 없습니다.");
-                // }
 
             }
 

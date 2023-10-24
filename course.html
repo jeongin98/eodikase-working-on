@@ -17,6 +17,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qxgq0uh1ml"></script>
+    <script src="https://kit.fontawesome.com/7ba0285b0d.js" crossorigin="anonymous"></script> <!-- Font Awesome icon -->
 </head>
 
 <body>
@@ -130,12 +131,6 @@
     </div>
     </div>
 
-
-
-
-
-
-
     <script>
         // 피드 화면 만드는 함수
         function loadFeedContent(courseData) {
@@ -247,9 +242,18 @@
                                 <h5 style="margin: 0; font-weight: 650; ">어디카세</h5></a></li>
                             <li><a href="course.html" style="text-decoration: none; color:#551A8B; font-family: Pretendard, 'Noto Sans KR', sans-serif"> <h5 style="margin: 0; font-weight: 650; ">코스 둘러보기</h5> </a></li>
                             <li class="search">
-                             <input type="search" placeholder="코스를 검색해보세요" onfocus="this.placeholder=''">
+                                <form action="./search.html" method="get">
+                                     <input type="search" name="keyword" placeholder="코스를 검색해보세요">
+                                    <input type="submit" value="검색">
+                        </form>
                             </li>
                         </ul>
+                    </div>
+                    <hr>
+                    <div class="back" style="margin:20px 20%;">
+                        <a href="course.html">
+                          <i class="fa-solid fa-arrow-left fa-2x" style="color:blueviolet"></i>
+                         </a>
                     </div>
                     <div class="img-banner">
                         <div class="store-img"></div>
@@ -338,30 +342,45 @@
                     lng: store.lng,
                 };
             });
-            console.log('locations', locations);
+            //console.log('locations', locations);
             drawMap(locations);
         }
 
+        // [Refactoring] 이후 함수화 하기
         function loadImgBanner(courseData_data) {
-            console.log('loadImgBanner 되는군')
             // 첫 번째 store-img 요소를 선택하고 내용을 변경
             var firstStoreImg = document.querySelector('.img-banner .store-img:first-child');
-            firstStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[0].imageUrl} >`;
+            if (courseData_data.courseItems[0].imageUrl == "") {
+                firstStoreImg.innerHTML += `<img src = ./img/no-img.jpg>` //임의
+            }
+            else {
+                firstStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[0].imageUrl} >`;
+            }
 
             // 두 번째 store-img 요소를 선택하고 내용을 변경
             var secondStoreImg = document.querySelector('.img-banner .store-img:nth-child(2)');
-            secondStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[1].imageUrl} >`;
+            if (courseData_data.courseItems[1].imageUrl == "") {
+                secondStoreImg.innerHTML += `<img src = ./img/no-img.jpg>` //임의
+            }
+            else {
+                secondStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[1].imageUrl} >`;
+            }
 
             // 세 번째 store-img 요소를 선택하고 내용을 변경
             var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
-            thirdStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[2].imageUrl} >`;
-            // const imageUrl = courseData_data.courseItems[0].imageUrl; // 이후 배열 처리
+
+            if (courseData_data.courseItems[2].imageUrl == "") {
+                thirdStoreImg.innerHTML += `<img src = ./img/no-img.jpg>` //임의
+            }
+            else {
+                thirdStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[2].imageUrl} >`;
+            }
         }
 
         function loadCourseContent(courseData_data) {
             // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정
             let profileImage;
-            console.log('courseData_data.memberProfileImage ', courseData_data.memberProfileImage)
+            //console.log('courseData_data.memberProfileImage ', courseData_data.memberProfileImage)
             if (courseData_data.memberProfileImage == null) {
                 profileImage = "./img/userImg-removebg.svg"
             }
@@ -397,7 +416,7 @@
                 return category;
             });
 
-            console.log('categories', categories);
+            //console.log('categories', categories);
 
             return categories; // 매장 정보 담긴 categories 반환
         }
@@ -409,11 +428,6 @@
             //axios.get('https://eodikase.com/v1/course/detail') /* 희범과 해봤는데 불가능한 방식임을 확인하고, STOP */
             axios.get(`https://eodikase.com/v1/courses/course/${courseId}`)
                 .then(function (response) {
-                    // 성공시 경우 실행
-                    console.log('성공 courseId :  ', courseId);
-                    console.log('GET Response Data:', response.data.data);
-                    console.log('여기부터가 안되는군')
-
                     getLocations(response.data.data);
                     loadImgBanner(response.data.data);
                     loadCourseContent(response.data.data); // 성공시 피드 화면 만드는 함수 실행

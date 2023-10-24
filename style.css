@@ -43,7 +43,6 @@ a {
 .img-banner {
     width: 100%;
     height: 400px;
-
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -61,7 +60,7 @@ img {
 }
 
 .store-img {
-    width: 20%;
+    width: 40%;
     height: auto;
     padding: 2px;
 
@@ -342,4 +341,5 @@ ul {
 .search-feed {
     width: 100%;
     min-height: auto;
+    margin: 0 10%;
 }
