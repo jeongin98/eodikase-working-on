@@ -35,11 +35,13 @@
                         </a>
                     </li>
                     <li class="search">
-                        <input type="search" placeholder="코스를 검색해보세요" onfocus="this.placeholder=''">
+                        <form action="./search.html" method="get">
+                            <input class="search-input" type="search" name="keyword" placeholder="코스를 검색해보세요">
+                        </form>
                     </li>
                 </ul>
             </div>
-            <div class="back" style="margin:200px 14%;">
+            <div class="back" style="margin:20px 20%;">
                 <a href="course.html">
                     <i class="fa-solid fa-arrow-left fa-2x" style="color:blueviolet"></i>
                 </a>

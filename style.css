@@ -35,6 +35,17 @@ a {
     border-style: none none solid none;*/
 }
 
+.search-input {
+    width: 245px;
+    height: 31px;
+    padding: 0 10px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #D6D6D6;
+    background: #FFF;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
 .section-wrap img {
     width: 700px;
     height: 600px;
@@ -63,7 +74,6 @@ img {
     width: 40%;
     height: auto;
     padding: 2px;
-
 }
 
 .course-detail {
@@ -87,9 +97,18 @@ img {
     display: inline-block;
 }
 
+.user-desc {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-name {
+    padding: 10px 0 0 0;
+}
+
 .card-user-nickname {
     color: black;
-    margin: 0 0 0 3px;
+    margin: 0 0 0 1px;
     font-weight: 550;
     font-size: 15px;
     display: inline-block;
@@ -193,7 +212,7 @@ ul {
 .feed-section {
     width: auto;
     height: 700px;
-    margin: 0 300px;
+    margin: 0 500px;
 }
 
 .select-region {
@@ -205,8 +224,18 @@ ul {
 }
 
 .select-region-ul {
+    width: auto;
     display: flex;
     align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.storySpan {
+    width: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
     overflow: hidden;
 }
 
@@ -223,7 +252,7 @@ ul {
 
 .card {
     width: auto;
-    height: 500px;
+    height: auto;
 }
 
 
@@ -232,7 +261,10 @@ ul {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+}
 
+.card-profile-img {
+    margin: 0 0 22px 0;
 }
 
 .card-img-bottom {
@@ -240,14 +272,32 @@ ul {
     height: auto;
 }
 
+.card {
+    padding: 20px 0 0 0;
+}
+
 .card-title,
 .card-text {
     color: black;
 }
 
-.card {
-    padding: 20px 0 0 0;
+.card-title {
+    padding: 5px 0 5px 5px;
+    font-weight: 700;
+    font-size: 25px;
 }
+
+.card-desc {
+    color: gray;
+    padding: 5px 0 5px 5px;
+}
+
+.card-time {
+    padding: 0px 0 0px 2px;
+    font-size: 12px;
+
+}
+
 
 .more {
     width: 100%;
@@ -334,7 +384,7 @@ ul {
 
 .search-section {
     width: auto;
-    height: 700px;
+    height: auto;
     margin: 0 30%;
 }
 
