@@ -64,7 +64,7 @@
                 <div class="banner-text">
                     <h1>주요 번화가<br>인기 매장</h1>
                     <p class="text">어느 매장을 갈지 고민되나요?<br>
-                        서울의 인기 지역의 매장들을 추천해드립니다! </p>
+                        서울의 인기 지역의 매장들을 추천해드립니다 </p>
                 </div>
                 <div style class="banner-img">
                     <img src="./img/banner-map.png">
@@ -77,38 +77,30 @@
 
         <div class="select-region">
             <ul class="select-region-ul"> <!-- onclick 할 때 axios로 GET요청 -->
-                <i class="fas fa-chevron-circle-left"></i>
-                <i class="fas fa-chevron-circle-right"></i>
-
-                <div class="storySpan" style="right: 0px;">
-                    <li><button type="submit" onclick="init();"><img class="select-region-img"
-                                src="./img/region-img/all.svg">
-                    </li>
-                    <li><button type="submit" onclick="selectRegion('KSS');"><img class="select-region-img"
-                                src="./img/region-img/kondea.svg">
-                    </li>
-                    <li><button type="submit" onclick="selectRegion('HSE');"><img class="select-region-img"
-                                src="./img/region-img/hongdea.svg">
-                    </li>
-                    <li><button type="submit" onclick="selectRegion('SH');"><img class="select-region-img"
-                                src="./img/region-img/hapjeong.svg">
-                    </li>
-                    <li><button type="submit" onclick="selectRegion('HI');"><img class="select-region-img"
-                                src="./img/region-img/iteawon.svg">
-                    </li>
-                    <li><button type="submit" onclick="selectRegion('NS');"><img class="select-region-img"
-                                src="./img/region-img/sinsa.svg">
-                    </li>
-                    <li><button type="submit" onclick="selectRegion('SBG');"><img class="select-region-img"
-                                src="./img/region-img/seochon.svg">
-                    </li>
-                    <li><button type="submit" onclick="selectRegion('EM');"><img class="select-region-img"
-                                src="./img/region-img/myeongdong.svg">
-                    </li>
-                </div>
-
-
-
+                <li><button type="submit" onclick="init();"><img class="select-region-img"
+                            src="./img/region-img/all.svg">
+                </li>
+                <li><button type="submit" onclick="selectRegion('KSS');"><img class="select-region-img"
+                            src="./img/region-img/kondea.svg">
+                </li>
+                <li><button type="submit" onclick="selectRegion('HSE');"><img class="select-region-img"
+                            src="./img/region-img/hongdea.svg">
+                </li>
+                <li><button type="submit" onclick="selectRegion('SH');"><img class="select-region-img"
+                            src="./img/region-img/hapjeong.svg">
+                </li>
+                <li><button type="submit" onclick="selectRegion('HI');"><img class="select-region-img"
+                            src="./img/region-img/iteawon.svg">
+                </li>
+                <li><button type="submit" onclick="selectRegion('NS');"><img class="select-region-img"
+                            src="./img/region-img/sinsa.svg">
+                </li>
+                <li><button type="submit" onclick="selectRegion('SBG');"><img class="select-region-img"
+                            src="./img/region-img/seochon.svg">
+                </li>
+                <li><button type="submit" onclick="selectRegion('EM');"><img class="select-region-img"
+                            src="./img/region-img/myeongdong.svg">
+                </li>
             </ul>
         </div>
 
@@ -140,32 +132,6 @@
     </div>
 
     <script>
-
-        const prevBtn = document.querySelector(".fa-chevron-circle-left");
-        const nextBtn = document.querySelector(".fa-chevron-circle-right");
-        const storySpan = document.querySelector(".storySpan");
-        let right = parseInt(storySpan.style.right);
-
-        const F00 = 265;
-
-        function next() {
-            if (right < 795) {
-                right += F00;
-                storySpan.style.right = `${right}px`;
-            }
-        }
-
-        function prev() {
-            if (right > 0) {
-                right -= F00;
-                storySpan.style.right = `${right}px`;
-            }
-        }
-        console.log('right', right);
-        nextBtn.addEventListener("click", next);
-        prevBtn.addEventListener("click", prev);
-
-
         // 피드 화면 만드는 함수
         function loadFeedContent(courseData) {
             const feed = document.querySelector('.feed'); // courseData는 Array // courseData === response.data.data.content
@@ -185,11 +151,8 @@
                 const courseName = content.courseName;
                 const courseDescription = content.courseDescription;
 
-                //const imageUrl = "./img/hse-region-img.png";
                 const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
 
-                /*과외 전 변경*/
-                /* 이전 :  <a href="#" onclick="courseDetail(${courseId});" */
                 feed.innerHTML += `
                     <a href="#" onclick="detail(${courseId});" style="text-decoration-line: none">
                         <div class="card">
@@ -200,30 +163,23 @@
                                         </p>
                                 </div>
                             </div>
-                            <h5 class="card-title" >${courseName}</h5>
+                            <h5 class="card-title">${courseName}</h5>
                             <p class="card-desc">${courseDescription}</p>
                             <img src= ${imageUrl} class="card-img-bottom">
                          </div> 
                          <hr>
                     </a>
                 `;
-                // 이 부분이 해결되어야함//해결됨
-                // console.log('container.innerHTML', container.innerHTML);
             });
 
         }
 
-
         function selectRegion(region) {
-            // container 초기화한 다음 채워넣기 + 라우팅은 전체 페이지 바뀔 때만
-
             axios.get(`https://eodikase.com/v1/courses/region/${region}`)
                 .then(function (response) {
                     // 성공시 경우 실행
                     console.log('GET Region Response Data:', response.data);
-                    //dataContainer.innerText = '결과: ' + JSON.stringify(response.data, null, 2);
                     console.log('response', response.data.data.content);
-                    //loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
                     const feed = document.querySelector('.feed');
                     feed.innerHTML = '';
                     loadFeedContent(response.data.data.content);
@@ -235,18 +191,11 @@
                 });
         }
 
-        // [Recheck]
-        function loadCourseData() {
-            axios.post('https://eodikase.com/v1/courses')
-        }
-
         function init() {
             axios.get('https://eodikase.com/v1/courses')
                 .then(function (response) {
                     // 성공시 경우 실행
-                    //console.log('GET!! Response Data:', response.data);
-                    //dataContainer.innerText = '결과: ' + JSON.stringify(response.data, null, 2);
-                    // console.log('response', response.data.data.content);
+                    //console.log('GET! Response Data:', response.data);
                     loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
                 })
                 .catch(function (error) {
@@ -302,11 +251,11 @@
                         <div class="profile-img"></div>
                         <div class="user-info-right-side">
                             <div class="user-nickname"></div>
-                            <div class="region">신촌·홍대</div>
+                            <div class="region" style="margin: 3px 0 0 10px;">신촌·홍대</div>
                         </div>
                     </div>
                     <div class="course-info">
-                        <div class="course-name"></div>
+                        <div class="course-name" style="margin:0 0 0 0;"></div>
                         <div class="course-categories"></div>
                     </div>
                     <div class="map-info">
@@ -341,9 +290,7 @@
                     </div>
                 </div>`;
 
-
-            initDetail(courseId);
-
+            initDetail(courseId); // Naver Map Api 이용하여 화면 생성하는 함수
         }
 
         function drawMap(locations) {
@@ -378,7 +325,6 @@
                     lng: store.lng,
                 };
             });
-            //console.log('locations', locations);
             drawMap(locations);
         }
 
@@ -416,7 +362,6 @@
         function loadCourseContent(courseData_data) {
             // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정
             let profileImage;
-            //console.log('courseData_data.memberProfileImage ', courseData_data.memberProfileImage)
             if (courseData_data.memberProfileImage == null) {
                 profileImage = "./img/userImg-removebg.svg"
             }
@@ -429,13 +374,9 @@
             const userNicknameContainer = document.querySelector('.user-nickname');
             const courseNameContainer = document.querySelector('.course-name');
             const courseCatergoriesContainer = document.querySelector('.course-categories');
-            //const profileImg = courseData_data.memberProfileImage; // null
-            //const profileImg = courseData_data.courseItems[0].imageUrl; // 임의
             const userNickname = courseData_data.nickname;
             const courseName = courseData_data.courseName;
             const cartegories = getCategories(courseData_data);
-
-            //console.log('course 정보', profileImg, userNickname, courseName, cartegories);
 
             profileImgContainer.innerHTML = `<img class="card-profile-img" src=${profileImage}>`;
             userNicknameContainer.innerText = userNickname;
@@ -448,20 +389,16 @@
         function getCategories(courseData_data) {
             const categories = courseData_data.courseItems.map((store) => {
                 const category = store.category.split(',')[0].trim();
-                //console.log('category', category);
                 return category;
             });
-
-            //console.log('categories', categories);
 
             return categories; // 매장 정보 담긴 categories 반환
         }
 
         // [Refactoring] 라우팅 적용해야하는 부분
         // [Refactoring] 서버로부터 detail.html respond 받고 + URL /뒤로 courseId 붙여서 방법 split해서 get요청 하는 방식으로도 구현해볼 것
+        // Naver Map API 데이터를 보여주는 함수
         function initDetail(courseId) {
-            /* location.href를 이용해 변경해야할 부분 */
-            //axios.get('https://eodikase.com/v1/course/detail') /* 희범과 해봤는데 불가능한 방식임을 확인하고, STOP */
             axios.get(`https://eodikase.com/v1/courses/course/${courseId}`)
                 .then(function (response) {
                     getLocations(response.data.data);

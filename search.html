@@ -94,7 +94,7 @@
             printEmptySearch();
         }
 
-        // 빈칸 검색시 
+        // 빈칸 검색시 예외 처리
         function printEmptySearch() {
             const search_feed = document.querySelector('.search-feed');
             search_feed.innerHTML = `
@@ -129,7 +129,6 @@
                 </p>`;
             } else {
                 courseData.forEach((content) => {
-
                     // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정 
                     let profileImage;
                     if (content.memberProfileImage == null) {
@@ -281,7 +280,6 @@
                     lng: store.lng,
                 };
             });
-            //console.log('locations', locations);
             drawMap(locations);
 
         }
@@ -356,13 +354,10 @@
             const userNicknameContainer = document.querySelector('.user-nickname');
             const courseNameContainer = document.querySelector('.course-name');
             const courseCatergoriesContainer = document.querySelector('.course-categories');
-            //const profileImg = courseData_data.memberProfileImage; // null
-            //const profileImg = courseData_data.courseItems[0].imageUrl; // 임의
             const userNickname = courseData_data.nickname;
             const courseName = courseData_data.courseName;
             const cartegories = getCategories(courseData_data);
 
-            //console.log('course 정보', profileImg, userNickname, courseName, cartegories);
             profileImgContainer.innerHTML = `<img class="card-profile-img" src=${profileImage}>`;
             userNicknameContainer.innerText = userNickname;
             courseNameContainer.innerHTML = `<h2 class="card-title"> ${courseName}</h2 >`;
@@ -373,11 +368,8 @@
         function getCategories(courseData_data) {
             const categories = courseData_data.courseItems.map((store) => {
                 const category = store.category.split(',')[0].trim();
-                //console.log('category', category);
                 return category;
             });
-
-            //console.log('categories', categories);
 
             return categories; // 매장 정보 담긴 categories 반환
         }
