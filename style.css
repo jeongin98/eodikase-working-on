@@ -1,437 +1,487 @@
 html,
 body {
-    font-family: Pretendard, 'Noto Sans KR', sans-serif;
-    height: 100%;
-
+  font-family: Pretendard, "Noto Sans KR", sans-serif;
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    position: relative;
+  margin: 0;
+  position: relative;
 }
 
 h2,
 h3 {
-    margin: 0;
+  margin: 0;
 }
 
 a {
-    text-decoration-line: none;
-    /*card 내부 a태그에서는 적용이 안 돼서 직접 태그 내부 style로 삽입 밑줄은*/
+  text-decoration-line: none;
+  /*card 내부 a태그에서는 적용이 안 돼서 직접 태그 내부 style로 삽입 밑줄은*/
 }
 
 .header {
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    display: inline;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: inline;
 }
 
 .navbar {
-    width: 100%;
-    height: 65px;
-    /*border-bottom-color: #9999a0a8;
+  width: 100%;
+  height: 65px;
+  /*border-bottom-color: #9999a0a8;
     border-bottom-width: 1px;
     border-style: none none solid none;*/
 }
 
 .search-input {
-    width: 245px;
-    height: 31px;
-    padding: 0 10px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    border: 1px solid #D6D6D6;
-    background: #FFF;
-    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 245px;
+  height: 31px;
+  padding: 0 10px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .section-wrap img {
-    width: 350px;
-    height: 600px;
+  width: 350px;
+  height: 600px;
 }
 
-
 .img-banner {
-    width: 100%;
-    height: 400px;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    padding: 0 20%;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 0 20%;
 }
 
 .select-region-ul button {
-    border: none;
+  border: none;
 }
 
 img {
-    width: 100%;
-    height: 100%;
-    border-radius: 5%;
+  width: 100%;
+  height: 100%;
+  border-radius: 5%;
 }
 
 .store-img {
-    width: 40%;
-    height: auto;
-    padding: 2px;
+  width: 40%;
+  height: auto;
+  padding: 2px;
 }
 
 .course-detail {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
 
-    padding: 10px 500px 0 500px;
-    /* height는 임의 */
+  padding: 10px 500px 0 500px;
+  /* height는 임의 */
 }
 
 .user-info {
-    width: 100%;
-    min-height: auto;
-    padding: 10px 0;
-    display: flex;
-    align-items: flex-start;
-
+  width: 100%;
+  min-height: auto;
+  padding: 10px 0;
+  display: flex;
+  align-items: flex-start;
 }
 
 .profile-img {
-    display: inline-block;
+  display: inline-block;
 }
 
 .user-desc {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .user-name {
-    padding: 10px 0 0 0;
+  padding: 10px 0 0 0;
 }
 
 .card-user-nickname {
-    color: black;
-    margin: 0 0 0 1px;
-    font-weight: 550;
-    font-size: 15px;
-    display: inline-block;
+  color: black;
+  margin: 0 0 0 1px;
+  font-weight: 550;
+  font-size: 15px;
+  display: inline-block;
 }
 
 .user-info-right-side .user-nickname {
-    color: black;
-    margin: 0 0 0 10px;
-    display: flex;
-    font-weight: 550;
-    font-size: 20px;
+  color: black;
+  margin: 0 0 0 10px;
+  display: flex;
+  font-weight: 550;
+  font-size: 20px;
 }
 
-
 .user-info-right-side .region {
-    margin: 5px 0 0 10px;
-    color: grey;
+  margin: 5px 0 0 10px;
+  color: grey;
 }
 
 .course-detail .region {
-    display: inline-block;
+  display: inline-block;
 }
 
 .course-info {
-    width: 100%;
-    height: auto;
-    padding: 20px 0;
-    border-bottom-color: #9999a0a8;
-    border-bottom-width: 1px;
-    border-style: none none solid none;
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+  border-bottom-color: #9999a0a8;
+  border-bottom-width: 1px;
+  border-style: none none solid none;
 }
 
 .course-name {
-    padding: 10px 0 10px 0;
+  padding: 10px 0 10px 0;
 }
 
 .map-info {
-    width: auto;
-    height: auto;
-    margin: 0;
-
+  width: auto;
+  height: auto;
+  margin: 0;
 }
 
 .map-info-text {
-    padding: 20px 0 5px 0;
+  padding: 20px 0 5px 0;
 }
 
 .navbar-ul {
-    width: 100%;
-    height: 65px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 0;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0;
 }
 
-
-
 .logo-img {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 .banner {
-    width: 100%;
-    height: 315px;
+  width: 100%;
+  height: 315px;
 
-    display: flex;
+  display: flex;
 }
 
 .banner-wrap {
-    width: 100%;
-    /* 공평하게 너비를 나눠가짐 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #D1C8FF;
+  width: 100%;
+  /* 공평하게 너비를 나눠가짐 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d1c8ff;
 }
 
 .banner-img {
-    width: 250px;
-    height: 250px;
-    display: flex;
-
+  width: 250px;
+  height: 250px;
+  display: flex;
 }
 
 .container {
-    width: 100%;
-    height: auto;
-    position: relative;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .feed-section {
-    width: auto;
-    height: 700px;
-    margin: 0 500px;
+  width: auto;
+  height: 700px;
+  margin: 0 500px;
 }
 
 .select-region {
-    width: auto;
-    height: 150px;
-    background-color: #F0F0F0;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
-    margin: 0 0 0.5px 0;
+  width: auto;
+  height: 150px;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
+  margin: 0 0 0.5px 0;
 }
 
 .select-region-ul {
-    width: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    overflow: hidden;
+  width: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
 }
 
 .storySpan {
-    width: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    overflow: hidden;
+  width: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
 }
 
 .select-region-img {
-    margin: 5px 0;
-    width: auto;
-    height: auto;
+  margin: 5px 0;
+  width: auto;
+  height: auto;
 }
 
 .feed {
-    width: 100%;
-    min-height: auto;
+  width: 100%;
+  min-height: auto;
 }
 
 .card {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
 }
-
 
 .card-profile-img,
 .profile-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .card-profile-img {
-    margin: 0 0 22px 0;
+  margin: 0 0 22px 0;
 }
 
 .card-img-bottom {
-    width: auto;
-    height: auto;
+  width: auto;
+  height: auto;
 }
 
 .card {
-    padding: 20px 0 0 0;
+  padding: 20px 0 0 0;
 }
 
 .card-title,
 .card-text {
-    color: black;
+  color: black;
 }
 
 .card-title {
-    padding: 5px 0 5px 0px;
-    font-weight: 700;
-    font-size: 25px;
+  padding: 5px 0 5px 0px;
+  font-weight: 700;
+  font-size: 25px;
 }
 
 .card-desc {
-    color: gray;
-    padding: 5px 0 5px 5px;
+  color: gray;
+  padding: 5px 0 5px 5px;
 }
 
 .card-time {
-    padding: 0px 0 0px 2px;
-    font-size: 12px;
-
+  padding: 0px 0 0px 2px;
+  font-size: 12px;
 }
 
-
 .more {
-    width: 100%;
-    height: 120px;
-    display: flex;
-    flex-direction: row;
-    background-color: #D1C8FF;
-    border-radius: 1%;
-    margin: 20px 0;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  background-color: #d1c8ff;
+  border-radius: 1%;
+  margin: 20px 0;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
 .section-text .text,
 .banner-text .text {
-    font-weight: 500;
-    font-size: 18px;
+  font-weight: 500;
+  font-size: 18px;
 }
 
+.body-section1 .section-text,
+.body-section3 .section-text,
+.body-section2 img {
+  margin: 0 0 0 400px;
+}
+.body-section1 img,
+.body-section3 img,
+.body-section2 .section-text {
+  margin: 0 400px 0 0;
+}
 
 .main-section {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
-
 
 .body-section1 {
-    width: auto;
-    height: 700px;
-    display: flex;
-    flex-direction: row;
-    background-color: #F6F3FF;
+  width: auto;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+  background-color: #f6f3ff;
 }
 
-
 .body-section2 {
-    width: auto;
-    height: 700px;
-    display: flex;
-    flex-direction: row;
-    background-color: white;
+  width: auto;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
 }
 
 .body-section3 {
-    width: auto;
-    height: 700px;
-    display: flex;
-    flex-direction: row;
-    background-color: #F6F3FF;
+  width: auto;
+  height: 700px;
+  display: flex;
+  flex-direction: row;
+  background-color: #f6f3ff;
 }
 
 .section-wrap {
+  width: 100%;
+  /* 공평하게 너비를 나눠가짐 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-text {
+  display: block;
+}
+
+.footer {
+  background-color: rgb(251, 250, 250);
+  width: 100%;
+  height: 150px;
+  bottom: 0;
+  margin: 100px 0 0 0;
+  /*transform: translateY(-100%);*/
+}
+
+.move-button {
+  color: #fff;
+  font-weight: 500;
+  display: inline-flex;
+  padding: 8px 22px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1.5px solid var(--light-primary-origin, #7b61ff);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  background: #7b61ff;
+}
+
+.footer a {
+  color: grey;
+}
+
+.top-keywords-list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.search-section {
+  width: auto;
+  height: auto;
+  margin: 0 30%;
+}
+
+.search-feed {
+  width: auto;
+  min-height: auto;
+}
+
+/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  /*스타일입력*/
+}
+
+/* 테블릿 세로 (해상도 768px ~ 1023px)*/
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  /*스타일입력*/
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
+@media all and (min-width: 480px) and (max-width: 767px) {
+  /*스타일입력*/
+}
+
+/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
+@media all and (max-width: 479px) {
+  .navbar-ul {
+    padding: 0;
+    flex-direction: row;
+    font-size: 10px;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .search-input {
+    width: 80px;
+    font-size: 8px;
+  }
+
+  .section-text {
+    font-size: 1px;
+  }
+  .section-wrap img {
+    /* 7 : 12 비율 */
+    width: 280px;
+    height: 480px;
+  }
+  .section-wrap {
     width: 100%;
     /* 공평하게 너비를 나눠가짐 */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.section-text {
-    display: block;
-}
-
-.footer {
-    background-color: rgb(251, 250, 250);
-    width: 100%;
-    height: 150px;
-    bottom: 0;
-    margin: 100px 0 0 0;
-    /*transform: translateY(-100%);*/
-}
-
-.move-button {
-    color: #fff;
-    font-weight: 500;
-    display: inline-flex;
-    padding: 8px 22px;
-    align-items: center;
-    gap: 10px;
-    border-radius: 5px;
-    border: 1.5px solid var(--light-primary-origin, #7B61FF);
-    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
-    background: #7B61FF;
-}
-
-.footer a {
-    color: grey;
-}
-
-.top-keywords-list {
+  }
+  .body-section1,
+  .body-section2,
+  .body-section3 {
+    width: auto;
+    height: 700px;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+  }
+  .section-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: 30px;
-}
-
-
-.search-section {
-    width: auto;
-    height: auto;
-    margin: 0 30%;
-}
-
-.search-feed {
-    width: auto;
-    min-height: auto;
-}
-
-/* iPhone 12 pro 390 x 944 */
-@media screen and (max-width:390px) {
-    .navbar-ul {
-        padding: 0;
-        flex-direction: row;
-        font-size: 10px
-    }
-
-    .logo-img {
-        width: 40px;
-        /* 원하는 너비로 설정하세요 */
-        height: 40px;
-    }
-
-    .search-input {
-        width: 80px;
-        font-size: 5px;
-    }
-
-    .body-section1 {
-        flex-direction: row;
-    }
-
-    .section-text {
-        font-size: 1px;
-    }
-
+  }
+  .section-text h1 {
+    font-size: 28px;
+  }
+  .section-text .text {
+    font-size: 15px;
+  }
+  .body-section1 .section-text,
+  .body-section3 .section-text,
+  .body-section2 img {
+    margin: 0 0 0 0px;
+  }
+  .body-section1 img,
+  .body-section3 img,
+  .body-section2 .section-text {
+    margin: 0 0 0 0;
+  }
+  .top-keywords-list {
+    padding: 0;
+  }
 }
