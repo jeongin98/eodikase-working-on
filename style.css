@@ -320,14 +320,12 @@ ul {
 
 
 .main-section {
-
     width: 100%;
     height: auto;
 }
 
 
 .body-section1 {
-
     width: auto;
     height: 700px;
     display: flex;
@@ -337,7 +335,6 @@ ul {
 
 
 .body-section2 {
-
     width: auto;
     height: 700px;
     display: flex;
@@ -408,4 +405,33 @@ ul {
 .search-feed {
     width: auto;
     min-height: auto;
+}
+
+/* iPhone 12 pro 390 x 944 */
+@media screen and (max-width:390px) {
+    .navbar-ul {
+        padding: 0;
+        flex-direction: row;
+        font-size: 10px
+    }
+
+    .logo-img {
+        width: 40px;
+        /* 원하는 너비로 설정하세요 */
+        height: 40px;
+    }
+
+    .search-input {
+        width: 80px;
+        font-size: 5px;
+    }
+
+    .body-section1 {
+        flex-direction: row;
+    }
+
+    .section-text {
+        font-size: 1px;
+    }
+
 }

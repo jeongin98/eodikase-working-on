@@ -174,12 +174,14 @@
 
         }
 
+
         function selectRegion(region) {
+            selectedRegion = region; // 지역 저장 // [Refactoring] 지역 이미지 선택시에만 region 값 할당인 상태 - 전국 상태에서도 저장할 수 있는 방법 찾아야함
             axios.get(`https://eodikase.com/v1/courses/region/${region}`)
                 .then(function (response) {
                     // 성공시 경우 실행
-                    console.log('GET Region Response Data:', response.data);
-                    console.log('response', response.data.data.content);
+                    // console.log('GET Region Response Data:', response.data);
+                    // console.log('response', response.data.data.content);
                     const feed = document.querySelector('.feed');
                     feed.innerHTML = '';
                     loadFeedContent(response.data.data.content);
@@ -187,7 +189,6 @@
                 .catch(function (error) {
                     // 에러인 경우 실행
                     console.log(error);
-
                 });
         }
 
@@ -200,7 +201,6 @@
                 })
                 .catch(function (error) {
                     // 에러인 경우 실행
-                    console.log('error');
                     console.log(error);
                 });
         }
@@ -251,7 +251,7 @@
                         <div class="profile-img"></div>
                         <div class="user-info-right-side">
                             <div class="user-nickname"></div>
-                            <div class="region" style="margin: 3px 0 0 10px;">신촌·홍대</div>
+                            <div class="region" style="margin: 3px 0 0 10px;"></div>
                         </div>
                     </div>
                     <div class="course-info">
@@ -359,6 +359,18 @@
             }
         }
 
+        const regionArr = {
+            KSS: "건대·성수·서울숲",
+            HSE: "홍대·신촌·이대",
+            SH: "상수·합정",
+            HI: "한남·이태원",
+            NS: "논현·신사",
+            SBG: "서촌·북촌·광화문",
+            EM: "을지로·명동",
+        }
+        let selectedRegion; // 코스 정보 디테일하게 보여주기 위함
+
+
         function loadCourseContent(courseData_data) {
             // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정
             let profileImage;
@@ -372,6 +384,7 @@
 
             const profileImgContainer = document.querySelector('.profile-img');
             const userNicknameContainer = document.querySelector('.user-nickname');
+            const regionContainer = document.querySelector('.region');
             const courseNameContainer = document.querySelector('.course-name');
             const courseCatergoriesContainer = document.querySelector('.course-categories');
             const userNickname = courseData_data.nickname;
@@ -380,6 +393,7 @@
 
             profileImgContainer.innerHTML = `<img class="card-profile-img" src=${profileImage}>`;
             userNicknameContainer.innerText = userNickname;
+            if (selectedRegion !== undefined) regionContainer.innerText = regionArr[selectedRegion]; // [Refac필요]
             courseNameContainer.innerHTML = `<h2 class="card-title"> ${courseName}</h2 >`;
             courseCatergoriesContainer.innerText = cartegories;
 
@@ -410,7 +424,7 @@
                 .catch(function (error) {
                     // 에러인 경우 실행
                     console.log('실패 courseId :', courseId);
-                    console.log('error');
+                    //console.log('error');
                 });
 
         }
