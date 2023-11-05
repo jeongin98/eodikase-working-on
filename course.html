@@ -334,6 +334,7 @@
         function loadImgBanner(courseData_data) {
 
             /* 코스 내 매장이 2개일 경우*/
+            /* 사진 위치를 조금 옮기기 */
             // 첫 번째 store-img 요소를 선택하고 내용을 변경
             var firstStoreImg = document.querySelector('.img-banner .store-img:first-child');
             if (courseData_data.courseItems[0].imageUrl == "") {
@@ -352,9 +353,10 @@
                 secondStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[1].imageUrl} >`;
             }
 
+            console.log('courseData_data.length : ', courseData_data.courseItems.length);
 
             /* 코스 내 매장이 3개 이상일 경우 */
-            if (courseData_data.length >= 3) {
+            if (courseData_data.courseItems.length >= 3) {
                 // 세 번째 store-img 요소를 선택하고 내용을 변경
                 var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
 
@@ -364,6 +366,13 @@
                 else {
                     thirdStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[2].imageUrl} >`;
                 }
+            }
+            else if (courseData_data.courseItems.length == 2) {
+                /* 2개일 땐 세 번째 img 칸 없애고 배치 조정함*/
+                var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
+                let parent = thirdStoreImg.parentElement; // 부모 객체 알아내기 
+                parent.removeChild(thirdStoreImg);    // 부모로부터 myDiv 객체 제거하기
+                parent.style.padding = '0 20% 0 30%';
             }
 
 
