@@ -148,6 +148,7 @@
 
                 const courseId = content.courseId;
                 const nickname = content.nickname;
+                const createdTime = calculateTime(content.createdDate);
                 const courseName = content.courseName;
                 const courseDescription = content.courseDescription;
 
@@ -159,7 +160,7 @@
                             <div>
                                 <img class="card-profile-img" src=${profileImage}>
                                 <div class="card-user-nickname"><div class="user-name">${nickname}</div>
-                                    <p class="card-time"><small class="text-muted">1시간 전</small>
+                                    <p class="card-time"><small class="text-muted">${createdTime}</small>
                                         </p>
                                 </div>
                             </div>
@@ -179,15 +180,11 @@
             selectedRegion = region; // 지역 저장 // [Refactoring] 지역 이미지 선택시에만 region 값 할당인 상태 - 전국 상태에서도 저장할 수 있는 방법 찾아야함
             axios.get(`https://eodikase.com/v1/courses/region/${region}`)
                 .then(function (response) {
-                    // 성공시 경우 실행
-                    // console.log('GET Region Response Data:', response.data);
-                    // console.log('response', response.data.data.content);
                     const feed = document.querySelector('.feed');
                     feed.innerHTML = '';
                     loadFeedContent(response.data.data.content);
                 })
                 .catch(function (error) {
-                    // 에러인 경우 실행
                     console.log(error);
                 });
         }
@@ -195,12 +192,11 @@
         function init() {
             axios.get('https://eodikase.com/v1/courses')
                 .then(function (response) {
-                    // 성공시 경우 실행
-                    //console.log('GET! Response Data:', response.data);
+                    const feed = document.querySelector('.feed');
+                    feed.innerHTML = '';
                     loadFeedContent(response.data.data.content); // 성공시 피드 화면 만드는 함수 실행
                 })
                 .catch(function (error) {
-                    // 에러인 경우 실행
                     console.log(error);
                 });
         }
@@ -353,8 +349,6 @@
                 secondStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[1].imageUrl} >`;
             }
 
-            console.log('courseData_data.length : ', courseData_data.courseItems.length);
-
             /* 코스 내 매장이 3개 이상일 경우 */
             if (courseData_data.courseItems.length >= 3) {
                 // 세 번째 store-img 요소를 선택하고 내용을 변경
@@ -445,9 +439,52 @@
                 .catch(function (error) {
                     // 에러인 경우 실행
                     console.log('실패 courseId :', courseId);
-                    //console.log('error');
                 });
 
+        }
+
+        function calculateTime(createdDateFromCourse) {
+
+            const createdDate = new Date(createdDateFromCourse); // createdDate를 JavaScript Date 객체로 파싱합니다.
+            const currentDate = new Date(); // 현재 날짜 및 시간을 가져옵니다.
+
+            // 날짜 간의 일(day) 차이를 계산하는 함수
+            function getDaysDiff(date1, date2) {
+                const oneDay = 24 * 60 * 60 * 1000; // 1일에 해당하는 밀리초
+                return Math.round(Math.abs((date1 - date2) / oneDay));
+            }
+
+            // 두 날짜 사이의 시간 차이를 계산합니다.
+            const timeDiff = currentDate - createdDate;
+            const hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60)); // 시간 차이 계산 (밀리초를 시간으로 변환)
+
+            let str; // 
+
+            if (hoursDiff < 1) {
+                // 1시간 미만 경과 시, 몇 분 경과했는지 표시
+                const minutesDiff = Math.floor(timeDiff / (1000 * 60)); // 분 차이 계산
+                str = `${minutesDiff}`;
+            } else if (hoursDiff < 24 && currentDate.getDate() === createdDate.getDate()) {
+                // 1시간 이상이지만 현재 날짜와 동일한 날에 생성된 경우, 시간 및 분(ex.13:50) 표시
+                const formattedTime = `${createdDate.getHours()}:${createdDate.getMinutes()}`;
+                str = `${formattedTime}`;
+            } else {
+                // 7일 이내인 경우, "n일 전" 형식으로 표시
+                const daysDiff = getDaysDiff(currentDate, createdDate);
+                if (daysDiff <= 7) {
+                    if (daysDiff === 1) {
+                        str = '어제';
+                    } else {
+                        str = `${daysDiff}일 전`;
+                    }
+                } else {
+                    // 7일 이상 경과 시, 날짜 형식으로 표시 (예: 11/4)
+                    const formattedDate = `${createdDate.getMonth() + 1}/${createdDate.getDate()}`;
+                    str = formattedDate;
+                }
+
+                return str;
+            }
         }
 
 
