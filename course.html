@@ -289,11 +289,11 @@
                         </ul>
                     </div>
                 </div>`;
-
             initDetail(courseId); // Naver Map Api 이용하여 화면 생성하는 함수
         }
 
         function drawMap(locations) {
+
             var map = new naver.maps.Map('map', {
                 center: new naver.maps.LatLng(locations[0].lat, locations[0].lng), // 배열의 첫 번째 위치를 중심으로 하는 지도
                 zoom: 15
@@ -313,6 +313,7 @@
                 strokeWeight: 6,   //선 두께
                 map: map           //오버레이할 지도
             });
+
         }
 
         function getLocations(courseData) {
@@ -325,11 +326,14 @@
                     lng: store.lng,
                 };
             });
+
             drawMap(locations);
         }
 
         // [Refactoring] 이후 함수화 하기
         function loadImgBanner(courseData_data) {
+
+            /* 코스 내 매장이 2개일 경우*/
             // 첫 번째 store-img 요소를 선택하고 내용을 변경
             var firstStoreImg = document.querySelector('.img-banner .store-img:first-child');
             if (courseData_data.courseItems[0].imageUrl == "") {
@@ -348,15 +352,21 @@
                 secondStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[1].imageUrl} >`;
             }
 
-            // 세 번째 store-img 요소를 선택하고 내용을 변경
-            var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
 
-            if (courseData_data.courseItems[2].imageUrl == "") {
-                thirdStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
+            /* 코스 내 매장이 3개 이상일 경우 */
+            if (courseData_data.length >= 3) {
+                // 세 번째 store-img 요소를 선택하고 내용을 변경
+                var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
+
+                if (courseData_data.courseItems[2].imageUrl == "") {
+                    thirdStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
+                }
+                else {
+                    thirdStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[2].imageUrl} >`;
+                }
             }
-            else {
-                thirdStoreImg.innerHTML += `<img src = ${courseData_data.courseItems[2].imageUrl} >`;
-            }
+
+
         }
 
         const regionArr = {
@@ -413,6 +423,8 @@
         // [Refactoring] 서버로부터 detail.html respond 받고 + URL /뒤로 courseId 붙여서 방법 split해서 get요청 하는 방식으로도 구현해볼 것
         // Naver Map API 데이터를 보여주는 함수
         function initDetail(courseId) {
+
+
             axios.get(`https://eodikase.com/v1/courses/course/${courseId}`)
                 .then(function (response) {
                     getLocations(response.data.data);
