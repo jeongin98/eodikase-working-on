@@ -171,7 +171,9 @@
 
                 const courseId = content.courseId;
                 const nickname = content.nickname;
+
                 const createdTime = calculateTime(content.createdDate);
+                console.log('createdTime : ', createdTime); // 반환값은 왜 undefined인것인가
                 const courseName = content.courseName;
                 const courseDescription = content.courseDescription;
 
@@ -467,7 +469,6 @@
         }
 
         function calculateTime(createdDateFromCourse) {
-
             const createdDate = new Date(createdDateFromCourse); // createdDate를 JavaScript Date 객체로 파싱합니다.
             const currentDate = new Date(); // 현재 날짜 및 시간을 가져옵니다.
 
@@ -481,16 +482,18 @@
             const timeDiff = currentDate - createdDate;
             const hoursDiff = Math.floor(timeDiff / (1000 * 60 * 60)); // 시간 차이 계산 (밀리초를 시간으로 변환)
 
-            let str; // 
+            let str; // 시간 저장하는 반환 데이터
 
             if (hoursDiff < 1) {
                 // 1시간 미만 경과 시, 몇 분 경과했는지 표시
                 const minutesDiff = Math.floor(timeDiff / (1000 * 60)); // 분 차이 계산
-                str = `${minutesDiff}`;
+                str = `${minutesDiff}분 전`;
             } else if (hoursDiff < 24 && currentDate.getDate() === createdDate.getDate()) {
                 // 1시간 이상이지만 현재 날짜와 동일한 날에 생성된 경우, 시간 및 분(ex.13:50) 표시
                 const formattedTime = `${createdDate.getHours()}:${createdDate.getMinutes()}`;
+
                 str = `${formattedTime}`;
+                console.log('formattedTime : ', formattedTime);
             } else {
                 // 7일 이내인 경우, "n일 전" 형식으로 표시
                 const daysDiff = getDaysDiff(currentDate, createdDate);
@@ -505,9 +508,8 @@
                     const formattedDate = `${createdDate.getMonth() + 1}/${createdDate.getDate()}`;
                     str = formattedDate;
                 }
-
-                return str;
             }
+            return str;
         }
 
 
