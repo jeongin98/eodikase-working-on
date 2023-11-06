@@ -59,10 +59,6 @@ a {
   padding: 0 20%;
 }
 
-.select-region-ul button {
-  border: none;
-}
-
 img {
   width: 100%;
   height: 100%;
@@ -209,8 +205,10 @@ ul {
   width: auto;
   height: 700px;
   margin: 0 500px;
+  padding: 0 4%;
 }
 
+/*
 .select-region {
   width: auto;
   height: 150px;
@@ -228,6 +226,11 @@ ul {
   flex-direction: row;
   overflow: hidden;
 }
+
+.select-region-ul button {
+  border: none;
+}
+*/
 
 .storySpan {
   width: auto;
@@ -405,6 +408,31 @@ ul {
 .search-feed {
   width: auto;
   min-height: auto;
+}
+/* Swiper 관련*/
+.swiper-container {
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  padding: 10px;
+}
+.swiper-slide button {
+  background-color: white;
+  border: none;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+}
+
+.swiper-button-next {
+  transform: translateX(-500px) translateY(-20px);
+}
+.swiper-button-prev {
+  transform: translateX(500px) translateY(-20px);
 }
 
 /* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/

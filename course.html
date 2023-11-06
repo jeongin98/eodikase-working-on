@@ -18,6 +18,9 @@
     <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qxgq0uh1ml"></script>
     <script src="https://kit.fontawesome.com/7ba0285b0d.js" crossorigin="anonymous"></script> <!-- Font Awesome icon -->
+    <!-- Swiper Framework mdn -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /><!-- CSS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script><!-- JS -->
 </head>
 
 <body>
@@ -74,34 +77,31 @@
     </div>
     <!--feed-section-->
     <div class="feed-section">
-
-        <div class="select-region">
-            <ul class="select-region-ul"> <!-- onclick 할 때 axios로 GET요청 -->
-                <li><button type="submit" onclick="init();"><img class="select-region-img"
-                            src="./img/region-img/all.svg">
-                </li>
-                <li><button type="submit" onclick="selectRegion('KSS');"><img class="select-region-img"
-                            src="./img/region-img/kondea.svg">
-                </li>
-                <li><button type="submit" onclick="selectRegion('HSE');"><img class="select-region-img"
-                            src="./img/region-img/hongdea.svg">
-                </li>
-                <li><button type="submit" onclick="selectRegion('SH');"><img class="select-region-img"
-                            src="./img/region-img/hapjeong.svg">
-                </li>
-                <li><button type="submit" onclick="selectRegion('HI');"><img class="select-region-img"
-                            src="./img/region-img/iteawon.svg">
-                </li>
-                <li><button type="submit" onclick="selectRegion('NS');"><img class="select-region-img"
-                            src="./img/region-img/sinsa.svg">
-                </li>
-                <li><button type="submit" onclick="selectRegion('SBG');"><img class="select-region-img"
-                            src="./img/region-img/seochon.svg">
-                </li>
-                <li><button type="submit" onclick="selectRegion('EM');"><img class="select-region-img"
-                            src="./img/region-img/myeongdong.svg">
-                </li>
-            </ul>
+        <!-- <div class="select-region"></div> -->
+        <div class="swiper-container">
+            <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false">
+            </div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><button type="submit" onclick="init();"><img class="select-region-img"
+                            src="./img/region-img/all.svg"></div>
+                <div class="swiper-slide"><button type="submit" onclick="selectRegion('KSS');"><img
+                            class="select-region-img" src="./img/region-img/kondea.svg"></div>
+                <div class="swiper-slide"><button type="submit" onclick="selectRegion('HSE');"><img
+                            class="select-region-img" src="./img/region-img/hongdea.svg"></div>
+                <div class="swiper-slide"><button type="submit" onclick="selectRegion('SH');"><img
+                            class="select-region-img" src="./img/region-img/hapjeong.svg"></div>
+                <div class="swiper-slide"><button type="submit" onclick="selectRegion('HI');"><img
+                            class="select-region-img" src="./img/region-img/iteawon.svg"></div>
+                <div class="swiper-slide"><button type="submit" onclick="selectRegion('NS');"><img
+                            class="select-region-img" src="./img/region-img/sinsa.svg"></div>
+                <div class="swiper-slide"><button type="submit" onclick="selectRegion('SBG');"><img
+                            class="select-region-img" src="./img/region-img/seochon.svg"></div>
+                <div class="swiper-slide"><button type="submit" onclick="selectRegion('EM');"><img
+                            class="select-region-img" src="./img/region-img/myeongdong.svg"></div>
+            </div>
+            <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"
+                aria-disabled="false">
+            </div>
         </div>
 
         <div class="feed"></div>
@@ -132,6 +132,29 @@
     </div>
 
     <script>
+        /* Swiper */
+        const mySwiper = new Swiper('.swiper-container', {
+            // 옵션 설정
+            direction: 'horizontal',
+            enabled: true,
+            slidesPerView: 5,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {   // 페이저 버튼 사용자 설정
+                el: '.pagination',  // 페이저 버튼을 담을 태그 설정
+                clickable: true,  // 버튼 클릭 여부
+                type: 'bullets', // 버튼 모양 결정 "bullets", "fraction" 
+                renderBullet: function (index, className) {  // className이 기본값이 들어가게 필수 설정
+                    return '<a href="#" class="' + className + '">' + (index + 1) + '</a>'
+                },
+                renderFraction: function (currentClass, totalClass) { // type이 fraction일 때 사용
+                    return '<span class="' + currentClass + '"></span>' + '<span class="' + totalClass + '"></span>';
+                }
+            },
+        });
+
         // 피드 화면 만드는 함수
         function loadFeedContent(courseData) {
             const feed = document.querySelector('.feed'); // courseData는 Array // courseData === response.data.data.content
@@ -486,6 +509,8 @@
                 return str;
             }
         }
+
+
 
 
         init();
