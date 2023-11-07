@@ -188,8 +188,8 @@ ul {
 }
 
 .banner-img {
-  width: 250px;
-  height: 250px;
+  width: 270px;
+  height: 270px;
   display: flex;
 }
 
@@ -525,7 +525,9 @@ ul {
   .banner-img {
     width: 100px;
     height: 100px;
+    padding-left: 10;
   }
+
   .banner-text h1 {
     font-size: 18px;
     font-weight: 550;

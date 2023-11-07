@@ -65,9 +65,9 @@
         <div class="banner">
             <div class="banner-wrap">
                 <div class="banner-text">
-                    <h1>주요 번화가<br>인기 매장</h1>
+                    <h1 style="font-weight: 550;">주요 번화가<br>인기 매장</h1>
                     <p class="text">어느 매장을 갈지 고민되나요?<br>
-                        서울의 인기 지역의 매장들을 추천해드립니다 </p>
+                        서울 인기 지역 매장들을 추천해드립니다 </p>
                 </div>
                 <div style class="banner-img">
                     <img src="./img/banner-map.png">
@@ -173,7 +173,6 @@
                 const nickname = content.nickname;
 
                 const createdTime = calculateTime(content.createdDate);
-                console.log('createdTime : ', createdTime); // 반환값은 왜 undefined인것인가
                 const courseName = content.courseName;
                 const courseDescription = content.courseDescription;
 
@@ -493,7 +492,6 @@
                 const formattedTime = `${createdDate.getHours()}:${createdDate.getMinutes()}`;
 
                 str = `${formattedTime}`;
-                console.log('formattedTime : ', formattedTime);
             } else {
                 // 7일 이내인 경우, "n일 전" 형식으로 표시
                 const daysDiff = getDaysDiff(currentDate, createdDate);
