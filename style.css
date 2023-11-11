@@ -537,4 +537,47 @@ ul {
     font-size: 9px;
     margin: 0 0 0;
   }
+
+  /* serach */
+  .search-section {
+    margin: 0 10%;
+  }
+
+  .card {
+    padding: 10px 0 0 0;
+  }
+
+  .card-title {
+    padding: 5px 0 5px 0px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  .card-desc {
+    color: gray;
+    padding: 5px 0 5px 5px;
+    font-size: 12px;
+  }
+  .card-profile-img {
+    margin: 0 0 25px 0;
+  }
+  .section-text .text {
+    font-weight: 900;
+    font-size: 12px;
+  }
+  .move-button {
+    /* 크기를 데스크탑의 3/4배로 줄임 */
+    width: 65%;
+  }
+  .more .section-text {
+    padding-top: 20px;
+    padding-left: 30px;
+  }
+  .more .move-button {
+    font-weight: 400;
+    font-size: 9px;
+  }
+  .top-keywords-list {
+    font-size: 12px;
+  }
 }
