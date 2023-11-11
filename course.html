@@ -132,6 +132,37 @@
     </div>
 
     <script>
+
+        // popstate 이벤트 핸들러 등록
+        window.addEventListener('popstate', handleBackButton);
+        /* 브라우저 뒤로가기 버튼이 눌렸을 때 실행되는 함수 */
+        function handleBackButton() {
+            var currentURL = window.location.href; // 현재 페이지의 URL
+            // 뒤로가기 이후 현재 페이지의 URL이 ' '인 경우 ' ' 페이지로 이동
+            if (currentURL === 'https://www.eodikase.com/course.html') {
+                window.location.replace('https://www.eodikase.com/course.html');
+            } else if (currentURL === 'http://127.0.0.1:5500/course.html') {
+                window.location.replace('http://127.0.0.1:5500/course.html');
+            }
+
+
+        }
+
+
+        // 현재 페이지의 검색어 추출하는 함수
+        function getCurrentKeyword() {
+            // 현재 페이지의 쿼리 문자열을 가져오기
+            var queryString = window.location.search;
+
+            // 쿼리 문자열에서 keyword 부분 추출
+            var keywordMatch = queryString.match(/(?:\?|&)keyword=([^&]+)/);
+
+            // 추출된 검색어 반환
+            return keywordMatch ? decodeURIComponent(keywordMatch[1]) : '';
+        }
+
+
+
         /* Swiper */
         const mySwiper = new Swiper('.swiper-container', {
             // 옵션 설정
@@ -430,7 +461,7 @@
 
             profileImgContainer.innerHTML = `<img class="card-profile-img" src=${profileImage}>`;
             userNicknameContainer.innerText = userNickname;
-            if (selectedRegion !== undefined) regionContainer.innerText = regionArr[selectedRegion]; // [Refac필요]
+            if (selectedRegion !== undefined) { regionContainer.innerText = regionArr[selectedRegion]; } // 카드 아래 출력할 지역 정보 저장(ex. 홍대·신촌·이대)
             courseNameContainer.innerHTML = `<h2 class="card-title"> ${courseName}</h2 >`;
             courseCatergoriesContainer.innerText = cartegories;
 
@@ -509,6 +540,7 @@
             }
             return str;
         }
+
 
 
 
