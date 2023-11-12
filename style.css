@@ -12,6 +12,7 @@ body {
 h2,
 h3 {
   margin: 0;
+  font-weight: 650;
 }
 
 a {
@@ -223,7 +224,7 @@ ul {
 .feed-section {
   width: auto;
   height: 700px;
-  margin: 0 500px;
+  margin: 0 300px;
   padding: 0 4%;
 }
 
@@ -448,10 +449,10 @@ ul {
 }
 
 .swiper-button-next {
-  transform: translateX(-500px) translateY(-20px);
+  transform: translateX(-300px) translateY(-100px);
 }
 .swiper-button-prev {
-  transform: translateX(500px) translateY(-20px);
+  transform: translateX(300px) translateY(-100px);
 }
 
 /* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
@@ -468,13 +469,6 @@ ul {
 @media all and (max-width: 479px) {
   .navbar-ul {
     padding: 0;
-    flex-direction: row;
-    font-size: 10px;
-  }
-
-  .logo-img {
-    width: 40px;
-    height: 40px;
   }
 
   .search-input {
@@ -557,24 +551,26 @@ ul {
     padding: 0;
   }
   .swiper-container {
-    padding: 2px 20px;
+    padding: 2px;
   }
   .swiper-slide img {
     width: 100%;
   }
+
+  /* 모바일에선 next, prev 화살표 버튼 안 보이게*/
   .swiper-button-next,
   .swiper-button-prev {
-    width: 1px;
-    height: 1px;
-    background-size: 10px 10px;
+    visibility: hidden;
   }
 
-  .swiper-button-next {
-    transform: translateX(-5px) translateY(-205px) scale(0.5); /* 원하는 비율로 조절 */
+  /* .swiper-button-next {
+    transform: translateX(-5px) translateY(-205px) scale(0.5); // scale 원하는 비율로 조절
   }
   .swiper-button-prev {
     transform: translateX(-5px) translateY(-205px) scale(0.5);
-  }
+  } 
+  */
+
   /* course - 코스 상세 */
   .course-detail {
     padding: 0;
@@ -609,15 +605,12 @@ ul {
     font-weight: 900;
     font-size: 12px;
   }
-  .move-button {
-    /* 크기를 데스크탑의 3/4배로 줄임 */
-    width: 65%;
-  }
   .more .section-text {
     padding-top: 20px;
     padding-left: 30px;
   }
   .more .move-button {
+    width: 65%; /* 크기를 데스크탑의 3/4배로 줄임 */
     font-weight: 400;
     font-size: 9px;
   }
