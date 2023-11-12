@@ -286,12 +286,12 @@
                         </ul>
                     </div>
                     <hr>
-                    <div class="back" style="margin:20px 20%;">
+                    <div class="back">
                         <a href="course.html">
-                          <i class="fa-solid fa-arrow-left fa-2x" style="color:blueviolet"></i>
+                          <i class="fa-solid fa-arrow-left fa-2x"></i>
                          </a>
                     </div>
-                    <div class="img-banner">
+                    <div class="img-banner-course">
                         <div class="store-img"></div>
                         <div class="store-img"></div>
                         <div class="store-img"></div>
@@ -387,7 +387,7 @@
             /* 코스 내 매장이 2개일 경우*/
             /* 사진 위치를 조금 옮기기 */
             // 첫 번째 store-img 요소를 선택하고 내용을 변경
-            var firstStoreImg = document.querySelector('.img-banner .store-img:first-child');
+            var firstStoreImg = document.querySelector('.img-banner-course .store-img:first-child');
             if (courseData_data.courseItems[0].imageUrl == "") {
                 firstStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
             }
@@ -396,7 +396,7 @@
             }
 
             // 두 번째 store-img 요소를 선택하고 내용을 변경
-            var secondStoreImg = document.querySelector('.img-banner .store-img:nth-child(2)');
+            var secondStoreImg = document.querySelector('.img-banner-course .store-img:nth-child(2)');
             if (courseData_data.courseItems[1].imageUrl == "") {
                 secondStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
             }
@@ -407,7 +407,7 @@
             /* 코스 내 매장이 3개 이상일 경우 */
             if (courseData_data.courseItems.length >= 3) {
                 // 세 번째 store-img 요소를 선택하고 내용을 변경
-                var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
+                var thirdStoreImg = document.querySelector('.img-banner-course .store-img:nth-child(3)');
 
                 if (courseData_data.courseItems[2].imageUrl == "") {
                     thirdStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
@@ -418,10 +418,20 @@
             }
             else if (courseData_data.courseItems.length == 2) {
                 /* 2개일 땐 세 번째 img 칸 없애고 배치 조정함*/
-                var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
+                var thirdStoreImg = document.querySelector('.img-banner-course .store-img:nth-child(3)');
                 let parent = thirdStoreImg.parentElement; // 부모 객체 알아내기 
                 parent.removeChild(thirdStoreImg);    // 부모로부터 myDiv 객체 제거하기
                 parent.style.padding = '0 20% 0 30%';
+                /* 반응형 - 화면이 모바일 사이즈일 경우 */
+                var mql = window.matchMedia("screen and (max-width: 479px)");
+                if (mql.matches) {
+                    parent.style.padding = '0 6%';
+                    parent.style.margin = '0 0 0 0';
+                    /* 배너 사진 크기 조정 */
+                    parent.style.height = '220px';
+                    firstStoreImg.style.width = '60%';
+                    secondStoreImg.style.width = '60%';
+                }
             }
 
 

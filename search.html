@@ -196,21 +196,21 @@
                         </ul>
                     </div>
                     <hr>
-                    <div class="back" onclick="goBack()"style="margin:20px 20%;">
-                          <i class="fa-solid fa-arrow-left fa-2x" style="color:blueviolet; cursor : pointer;"></i>
+                    <div class="back" onclick="goBack()">
+                          <i class="fa-solid fa-arrow-left fa-2x"></i>
                     </div>
-                    <div class="img-banner">
+                    <div class="img-banner-search">
                         <div class="store-img"></div>
                         <div class="store-img"></div>
                         <div class="store-img"></div>
                     </div>
                 </div>
-                <div class="course-detail" style="padding:10px 300px 0px;">
+                <div class="course-detail-search">
                     <div class="user-info">
                         <div class="profile-img"></div>
                         <div class="user-info-right-side">
                             <div class="user-nickname"></div>
-                            <div class="region">신촌·홍대</div>
+                            <div class="region"></div>
                         </div>
                     </div>
                     <div class="course-info">
@@ -309,7 +309,7 @@
         function loadImgBanner(courseData_data) {
 
             // 첫 번째 store-img 요소를 선택하고 내용을 변경
-            var firstStoreImg = document.querySelector('.img-banner .store-img:first-child');
+            var firstStoreImg = document.querySelector('.img-banner-search .store-img:first-child');
             if (courseData_data.courseItems[0].imageUrl == "") {
                 firstStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
             }
@@ -318,7 +318,7 @@
             }
 
             // 두 번째 store-img 요소를 선택하고 내용을 변경
-            var secondStoreImg = document.querySelector('.img-banner .store-img:nth-child(2)');
+            var secondStoreImg = document.querySelector('.img-banner-search .store-img:nth-child(2)');
             if (courseData_data.courseItems[1].imageUrl == "") {
                 secondStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
             }
@@ -327,7 +327,7 @@
             }
 
             // 세 번째 store-img 요소를 선택하고 내용을 변경
-            var thirdStoreImg = document.querySelector('.img-banner .store-img:nth-child(3)');
+            var thirdStoreImg = document.querySelector('.img-banner-search .store-img:nth-child(3)');
 
             if (courseData_data.courseItems[2].imageUrl == "") {
                 thirdStoreImg.innerHTML += `<img src = ./img/no-img.png>` //임의
