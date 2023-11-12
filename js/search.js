@@ -177,10 +177,11 @@ function initDetail(courseId) {
       getLocations(response.data.data);
 
       loadImgBanner(response.data.data);
+
       loadCourseContent(response.data.data); // 성공시 피드 화면 만드는 함수 실행
     })
     .catch(function (error) {
-      // 에러인 경우 실행
+      // 에러인 경우 실행(주석 삭제x)
       console.log("실패 courseId :", courseId);
     });
 }
@@ -255,10 +256,12 @@ function loadImgBanner(courseData_data) {
 function loadCourseContent(courseData_data) {
   // 유저가 프로필 이미지를 설정해놓지 않을 경우 기본 이미지로 설정
   let profileImage;
+  // 이미지 미설정
   if (courseData_data.memberProfileImage == null) {
     profileImage = "../img/userImg-removebg.svg";
   } else {
-    profileImage = content.memberProfileImage;
+    // 이미지 설정한 경우
+    profileImage = courseData_data.memberProfileImage.imgUrl;
   }
 
   const profileImgContainer = document.querySelector(".profile-img");

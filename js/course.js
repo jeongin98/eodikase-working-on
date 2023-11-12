@@ -336,7 +336,7 @@ function initDetail(courseId) {
       //alert(newURL);
     })
     .catch(function (error) {
-      // 에러인 경우 실행
+      // 에러인 경우 실행(주석 삭제x)
       console.log("실패 courseId :", courseId);
     });
 }
