@@ -1,0 +1,106 @@
+<!-- detail.html은 실제 배포하는 파일은 아니나, 화면 출력을 확인하기 위함임 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>특정 코스 상세보기
+    </title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/7ba0285b0d.js" crossorigin="anonymous"></script> <!-- Font Awesome icon -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- axios 추가 -->
+    <script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qxgq0uh1ml"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <div class="navbar">
+                <ul class="navbar-ul">
+                    <li><a href="index.html">
+                            <img class="logo-img" src="./img/app-logo.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html">
+                            <h3>어디카세</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="course.html">
+                            <h3>코스 둘러보기</h3>
+                        </a>
+                    </li>
+                    <li class="search">
+                        <form action="../html/search.html" method="get">
+                            <input class="search-input" type="search" name="keyword" placeholder="코스를 검색해보세요">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div class="back" style="margin:20px 20%;">
+                <a href="course.html">
+                    <i class="fa-solid fa-arrow-left fa-2x" style="color:blueviolet"></i>
+                </a>
+            </div>
+            <div class="img-banner">
+                <div class="store-img"></div>
+                <div class="store-img"></div>
+                <div class="store-img"></div>
+            </div>
+        </div>
+        <div class="course-detail">
+            <div class="user-info">
+                <div class="profile-img"></div>
+                <div class="user-info-right-side">
+                    <div class="user-nickname"></div>
+                    <div class="region">신촌·홍대</div>
+                </div>
+            </div>
+            <div class="course-info">
+                <div class="course-name"></div>
+                <div class="course-categories"></div>
+            </div>
+            <div class="map-info">
+                <div class="map-info-text">
+                    <h1>코스 정보</h1>
+                </div>
+
+                <div id="map" style="width:100%; height:700px;"></div>
+            </div>
+            <div class="more">
+                <div class="section-wrap">
+                    <div class="section-text">
+                        <p class="text">코스 내용을 상세하게 보고싶다면 <br>어디카세 앱을 다운받아 보세요!</p>
+                    </div>
+                </div>
+                <div class="section-wrap">
+                    <input class="move-button" type="button" onclick="location" href='https://www.naver.com/'
+                        value=" 앱 다운하러 가기">
+                </div>
+            </div>
+            <div class="footer">
+                <ul class="top-keywords-list">
+                    <li>
+                        <a href="#">이용약관</a>
+                    </li>
+                    <li>
+                        <a href="#">개인정보처리방침</a>
+                    </li>
+                    <li>
+                        <a href="#">위치기반서비스 이용약관</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/js/detail.js"></script>
+</body>
+
+</html>
