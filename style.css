@@ -17,7 +17,6 @@ h3 {
 
 a {
   text-decoration-line: none;
-  /*card 내부 a태그에서는 적용이 안 돼서 직접 태그 내부 style로 삽입 밑줄은*/
 }
 
 .header {
@@ -30,9 +29,6 @@ a {
 .navbar {
   width: 100%;
   height: 65px;
-  /*border-bottom-color: #9999a0a8;
-    border-bottom-width: 1px;
-    border-style: none none solid none;*/
 }
 
 .search-input {
@@ -51,7 +47,7 @@ a {
   height: 600px;
 }
 
-/* 화살표 아이콘 */
+/* 화살표 아이콘(.back 대신)*/
 .fa-2x {
   margin: 20px 20%;
   color: blueviolet;
@@ -81,12 +77,7 @@ img {
   height: auto;
   padding: 2px;
 }
-.container .course-detail-course {
-  width: auto;
-  height: auto;
-  padding: 10px 250px 0px;
-}
-
+.container .course-detail-course,
 .container .course-detail-search {
   width: auto;
   height: auto;
@@ -221,30 +212,6 @@ ul {
   margin: 0 300px;
   padding: 0 4%;
 }
-
-/*
-.select-region {
-  width: auto;
-  height: 150px;
-  background-color: #f0f0f0;
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.25);
-  margin: 0 0 0.5px 0;
-}
-
-.select-region-ul {
-  width: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  overflow: hidden;
-}
-
-.select-region-ul button {
-  border: none;
-}
-*/
 
 .storySpan {
   width: auto;
@@ -386,7 +353,6 @@ ul {
   height: 150px;
   bottom: 0;
   margin: 100px 0 0 0;
-  /*transform: translateY(-100%);*/
 }
 
 .move-button {
@@ -447,209 +413,4 @@ ul {
 }
 .swiper-button-prev {
   transform: translateX(300px) translateY(-100px);
-}
-
-/* PC , 테블릿 가로 (해상도 768px ~ 1023px)*/
-/* 테블릿 세로 (해상도 768px ~ 1023px)*/
-@media all and (min-width: 768px) and (max-width: 1023px) {
-}
-
-/* 모바일 가로, 테블릿 세로 (해상도 480px ~ 767px)*/
-@media all and (min-width: 480px) and (max-width: 767px) {
-  /*스타일입력*/
-}
-
-/* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
-@media all and (max-width: 479px) {
-  .navbar-ul {
-    padding: 0;
-  }
-
-  .search-input {
-    width: 80px;
-    font-size: 8px;
-  }
-
-  .section-text {
-    font-size: 1px;
-  }
-  .section-wrap img {
-    /* 7 : 12 비율 */
-    width: 280px;
-    height: 480px;
-  }
-  .section-wrap {
-    width: 100%;
-    /* 공평하게 너비를 나눠가짐 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .body-section1,
-  .body-section2,
-  .body-section3 {
-    width: auto;
-    height: 700px;
-    display: flex;
-    flex-direction: column;
-  }
-  .section-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .section-text h1 {
-    font-size: 28px;
-  }
-  .section-text .text {
-    font-size: 15px;
-  }
-  .body-section1 .section-text,
-  .body-section3 .section-text,
-  .body-section2 img {
-    margin: 0 0 0 0px;
-  }
-  .body-section1 img,
-  .body-section3 img,
-  .body-section2 .section-text {
-    margin: 0 0 0 0;
-  }
-  .top-keywords-list {
-    padding: 0;
-  }
-
-  .banner {
-    width: 100%;
-    height: 115px;
-    display: flex;
-  }
-  .banner-img {
-    width: 100px;
-    height: 100px;
-    padding-left: 10;
-  }
-
-  .banner-text h1 {
-    font-size: 18px;
-    font-weight: 550;
-    margin: 0 0 1 0;
-  }
-  .banner-text .text {
-    font-size: 9px;
-    margin: 0 0 0;
-  }
-  /* course*/
-  .feed-section {
-    margin: 0;
-    padding: 0;
-  }
-  .swiper-container {
-    padding: 2px;
-  }
-  .swiper-slide img {
-    width: 100%;
-  }
-
-  /* 모바일에선 next, prev 화살표 버튼 안 보이게*/
-  .swiper-button-next,
-  .swiper-button-prev {
-    visibility: hidden;
-  }
-
-  /* .swiper-button-next {
-    transform: translateX(-5px) translateY(-205px) scale(0.5); // scale 원하는 비율로 조절
-  }
-  .swiper-button-prev {
-    transform: translateX(-5px) translateY(-205px) scale(0.5);
-  } 
-  */
-
-  /* course - 코스 상세 */
-  .course-detail {
-    padding: 0;
-    margin: 0;
-    font-size: 75%; /* 모든 글자를 한 번에 비율 축소*/
-  }
-
-  /* search */
-  .search-section {
-    margin: 0 10%;
-  }
-
-  .card {
-    padding: 10px 0 0 0;
-  }
-
-  .card-title {
-    padding: 5px 0 5px 0px;
-    font-weight: 700;
-    font-size: 20px;
-  }
-
-  .card-desc {
-    color: gray;
-    padding: 5px 0 5px 5px;
-    font-size: 12px;
-  }
-  .card-profile-img {
-    margin: 0 0 25px 0;
-  }
-  .section-text .text {
-    font-weight: 900;
-    font-size: 12px;
-  }
-  .more .section-text {
-    padding-top: 20px;
-    padding-left: 30px;
-  }
-  .more .move-button {
-    width: 65%; /* 크기를 데스크탑의 3/4배로 줄임 */
-    font-weight: 400;
-    font-size: 9px;
-  }
-  .top-keywords-list {
-    font-size: 12px;
-  }
-
-  /* search 후 코스 자세히 보기 */
-  .img-banner-course {
-    padding: 0 0%;
-    height: 200px;
-  }
-
-  .img-banner-search {
-    padding: 0 0%;
-    height: 200px;
-  }
-  .container .course-detail-search {
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 0;
-  }
-
-  .map-info {
-    width: auto;
-    height: auto;
-  }
-
-  /* search - 코스 상세 */
-  /* 화살표 아이콘 */
-  .fa-2x {
-    margin: 0 0 10px 0;
-  }
-
-  .container .course-detail {
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 0;
-  }
-  .course-info {
-    padding: 5px 0;
-  }
-  .back {
-    margin: 0;
-  }
 }

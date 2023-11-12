@@ -8,6 +8,7 @@
     <title>검색 결과</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- axios -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" type="text/css"
         href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'> <!-- font -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- axios -->
@@ -103,12 +104,11 @@
                 </p>`;
         }
 
-        // keyword 정보 요청 함수
+        // 검색어 keyword 정보 요청 함수
         function performSearch(keyword) {
             // 요청을 보낼 URL 설정
             const apiUrl = `https://eodikase.com/v1/courses/title/search?keyword=${keyword}`;
 
-            // Axios를 사용하여 GET 요청 보내기
             axios.get(apiUrl)
                 .then(response => {
                     loadSearchFeedContent(response.data.data.content);
@@ -374,6 +374,7 @@
             return categories; // 매장 정보 담긴 categories 반환
         }
 
+        // 뒤로가기
         function goBack() {
             history.back();
             location.reload(true);
