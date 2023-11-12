@@ -56,17 +56,11 @@ a {
   margin: 20px 20%;
   color: blueviolet;
   cursor: pointer;
+  position: relative;
+  left: -100px;
 }
 
-.img-banner-course {
-  width: 100%;
-  height: 400px;
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  padding: 0 20%;
-}
-
+.img-banner-course,
 .img-banner-search {
   width: 100%;
   height: 400px;
@@ -87,10 +81,10 @@ img {
   height: auto;
   padding: 2px;
 }
-.container .course-detail {
+.container .course-detail-course {
   width: auto;
   height: auto;
-  padding: 10px 440px 0px;
+  padding: 10px 250px 0px;
 }
 
 .container .course-detail-search {

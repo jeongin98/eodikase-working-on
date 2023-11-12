@@ -294,7 +294,7 @@
                         <div class="store-img"></div>
                     </div>
                 </div>
-                <div class="course-detail">
+                <div class="course-detail-course">
                     <div class="user-info">
                         <div class="profile-img"></div>
                         <div class="user-info-right-side">
@@ -418,7 +418,11 @@
                 var thirdStoreImg = document.querySelector('.img-banner-course .store-img:nth-child(3)');
                 let parent = thirdStoreImg.parentElement; // 부모 객체 알아내기 
                 parent.removeChild(thirdStoreImg);    // 부모로부터 myDiv 객체 제거하기
-                parent.style.padding = '0 20% 0 30%';
+                parent.style.padding = '0 15% 0 20%';
+                parent.style.margin = '0 0 0 0';
+                parent.style.height = '470px';
+                firstStoreImg.style.width = '45%';
+                secondStoreImg.style.width = '45%';
                 /* 반응형 - 화면이 모바일 사이즈일 경우 */
                 var mql = window.matchMedia("screen and (max-width: 479px)");
                 if (mql.matches) {
