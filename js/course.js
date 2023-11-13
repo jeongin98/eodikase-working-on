@@ -4,8 +4,8 @@ window.addEventListener("popstate", handleBackButton);
 function handleBackButton() {
   var currentURL = window.location.href; // 현재 페이지의 URL
   // 뒤로가기 이후 현재 페이지의 URL이 ' '인 경우 ' ' 페이지로 이동
-  if (currentURL === "https://www.eodikase.com/course.html") {
-    window.location.replace("https://www.eodikase.com/course.html");
+  if (currentURL === "https://www.eodikase.com/html/course.html") {
+    window.location.replace("https://www.eodikase.com/html/course.html");
   } else if (currentURL === "http://127.0.0.1:5500/html/course.html") {
     window.location.replace("http://127.0.0.1:5500/html/course.html");
   }
