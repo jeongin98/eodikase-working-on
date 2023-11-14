@@ -10,9 +10,21 @@
 
 /* 모바일 가로, 테블릿 세로 (해상도 ~ 479px)*/
 @media all and (max-width: 479px) {
+  .header-index .navbar-ul {
+    width: 96%;
+    padding: 0 5px;
+  }
+  .header-index .logo-img {
+    margin-left: 5px;
+    margin-top: 4px;
+  }
+  .logo-img {
+    width: 60%;
+    height: 60%;
+  }
   .navbar-ul h3,
   .navbar-ul h5 {
-    font-size: 1.15em;
+    font-size: 1em;
     font-family: Pretendard, "Noto Sans KR", sans-serif;
   }
   .navbar-ul {
