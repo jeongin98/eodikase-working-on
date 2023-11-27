@@ -45,7 +45,7 @@ function loadFeedContent(courseData) {
     const imageUrl = content.courseItems[0].imageUrl; // 이후 배열 처리
 
     feed.innerHTML += `
-                    <a href="#" onclick="detail(${courseId});" style="text-decoration-line: none">
+                    <a href="#/${courseId}" onclick="detail(${courseId});" style="text-decoration-line: none">
                         <div class="card">
                             <div>
                                 <img class="card-profile-img" src=${profileImage}>
